@@ -459,7 +459,7 @@
         "kind": 6,
         "importPath": "app.forms",
         "description": "app.forms",
-        "peekOfCode": "class EditProfileForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    about_me=TextAreaField('About me',validators=[Length(min=0,max=140)])\n    submit=SubmitField('Submit')",
+        "peekOfCode": "class EditProfileForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    about_me=TextAreaField('About me',validators=[Length(min=0,max=140)])\n    submit=SubmitField('Submit')\n    def __init__(self, original_username, *args, **kwargs):\n        super(EditProfileForm, self).__init__(*args, **kwargs)\n        self.original_username = original_username\n    def validate_username(self, username):\n        if username.data != self.original_username:\n            user = User.query.filter_by(username=self.username.data).first()",
         "detail": "app.forms",
         "documentation": {}
     },
@@ -549,7 +549,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def edit_profile():\n    form=EditProfileForm()\n    if form.validate_on_submit():\n        current_user.username=form.username.data\n        current_user.about_me=form.about_me.data\n        db.session.commit()\n        flash('Your changes have been saved')\n        return redirect(url_for('edit_profile'))\n    elif request.method=='GET':\n        form.username.data=current_user.username",
+        "peekOfCode": "def edit_profile():\n    form=EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username=form.username.data\n        current_user.about_me=form.about_me.data\n        db.session.commit()\n        flash('Your changes have been saved')\n        return redirect(url_for('edit_profile'))\n    elif request.method=='GET':\n        form.username.data=current_user.username",
         "detail": "app.routes",
         "documentation": {}
     },
