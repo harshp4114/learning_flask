@@ -1,5 +1,125 @@
 [
     {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "FlaskForm",
         "importPath": "flask_wtf",
         "description": "flask_wtf",
@@ -40,6 +160,14 @@
         "documentation": {}
     },
     {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
         "label": "DataRequired",
         "importPath": "wtforms.validators",
         "description": "wtforms.validators",
@@ -48,51 +176,155 @@
         "documentation": {}
     },
     {
-        "label": "render_template",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "wtforms.validators",
         "documentation": {}
     },
     {
-        "label": "flash",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "wtforms.validators",
         "documentation": {}
     },
     {
-        "label": "redirect",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "wtforms.validators",
         "documentation": {}
     },
     {
-        "label": "url_for",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "wtforms.validators",
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "UserMixin",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "md5",
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "isExtraImport": true,
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileForm",
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "isExtraImport": true,
+        "detail": "app.forms",
         "documentation": {}
     },
     {
@@ -101,6 +333,80 @@
         "description": "app.forms",
         "isExtraImport": true,
         "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "isExtraImport": true,
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "urlsplit",
+        "importPath": "werkzeug.urls",
+        "description": "werkzeug.urls",
+        "isExtraImport": true,
+        "detail": "werkzeug.urls",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
         "documentation": {}
     },
     {
@@ -113,12 +419,84 @@
         "documentation": {}
     },
     {
+        "label": "not_found_error",
+        "kind": 2,
+        "importPath": "app.errors",
+        "description": "app.errors",
+        "peekOfCode": "def not_found_error(error):\n    return render_template('404.html'),404\n@app.errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    return render_template('500.html'),500",
+        "detail": "app.errors",
+        "documentation": {}
+    },
+    {
+        "label": "internal_error",
+        "kind": 2,
+        "importPath": "app.errors",
+        "description": "app.errors",
+        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    return render_template('500.html'),500",
+        "detail": "app.errors",
+        "documentation": {}
+    },
+    {
         "label": "LoginForm",
         "kind": 6,
         "importPath": "app.forms",
         "description": "app.forms",
-        "peekOfCode": "class LoginForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    password=PasswordField('Password',validators=[DataRequired()])\n    remember_me=BooleanField('Remember Me')\n    submit=SubmitField('Sign up')",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    password=PasswordField('Password',validators=[DataRequired()])\n    remember_me=BooleanField('Remember Me')\n    submit=SubmitField('Sign up')\nclass RegistrationForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    email=StringField('Email',validators=[DataRequired(),Email()])\n    password=PasswordField('Password',validators=[DataRequired()])\n    password2=PasswordField('Repeat Passwrod',validators=[DataRequired(),EqualTo('password')])",
         "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    email=StringField('Email',validators=[DataRequired(),Email()])\n    password=PasswordField('Password',validators=[DataRequired()])\n    password2=PasswordField('Repeat Passwrod',validators=[DataRequired(),EqualTo('password')])\n    submit=SubmitField('Register')\n    def validate_username(self,username):\n        user=User.query.filter_by(username=username.data).first()\n        if user is not None:\n            raise ValidationError('Please use a different username.')",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class EditProfileForm(FlaskForm):\n    username=StringField('Username',validators=[DataRequired()])\n    about_me=TextAreaField('About me',validators=[Length(min=0,max=140)])\n    submit=SubmitField('Submit')",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class User(db.Model,UserMixin):\n    id = db.Column(db.Integer,primary_key=True)\n    username=db.Column(db.String(64),index=True,unique=True)\n    email=db.Column(db.String(120),index=True,unique=True)\n    password_hash=db.Column(db.String(128))\n    posts=db.relationship('Post',backref='author',lazy='dynamic')\n    about_me=db.Column(db.String(140))\n    last_seen=db.Column(db.DateTime,default=datetime.utcnow)\n    def __repr__(self):\n        return '<User {}>'.format(self.username)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Post",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Post(db.Model):\n    id=db.Column(db.Integer,primary_key=True)\n    body=db.Column(db.String(140))\n    timestamp=db.Column(db.DateTime,index=True,default=datetime.utcnow)\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    def __repr__(self):\n        return '<Post {}>'.format(self.body)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "load_user",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id=db.Column(db.Integer,primary_key=True)\n    body=db.Column(db.String(140))\n    timestamp=db.Column(db.DateTime,index=True,default=datetime.utcnow)\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    def __repr__(self):\n        return '<Post {}>'.format(self.body)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "before_request",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen=datetime.utcnow()\n        db.session.commit()\n@app.route('/')\n@app.route('/index')\n@login_required\ndef index():\n    user={\"username\":\"John Doe\"}\n    posts=[{'author':'John','body':'I love eating apples.'},{'author':'Sarah','body':'The Avengers movie was so cool!'}]",
+        "detail": "app.routes",
         "documentation": {}
     },
     {
@@ -126,7 +504,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def index():\n    user={\"username\":\"John Doe\"}\n    posts=[{'author':'John','body':'I love eating apples.'},{'author':'Sarah','body':'The Avengers movie was so cool!'}]\n    return render_template(\"index.html\",title=\"Home\",user=user,posts=posts)\n@app.route('/login',methods=['GET','POST'])\ndef login():\n    form=LoginForm()\n    if form.validate_on_submit():\n        flash(\"Login requested for user {}, remember_me={}\".format(form.username.data,form.remember_me.data))\n        return redirect(url_for('index'))",
+        "peekOfCode": "def index():\n    user={\"username\":\"John Doe\"}\n    posts=[{'author':'John','body':'I love eating apples.'},{'author':'Sarah','body':'The Avengers movie was so cool!'}]\n    return render_template(\"index.html\",title=\"Home\",user=user,posts=posts)\n@app.route('/login',methods=['GET','POST'])\ndef login():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=LoginForm()\n    if form.validate_on_submit():",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -135,8 +513,278 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def login():\n    form=LoginForm()\n    if form.validate_on_submit():\n        flash(\"Login requested for user {}, remember_me={}\".format(form.username.data,form.remember_me.data))\n        return redirect(url_for('index'))\n    return render_template('login.html',title='Sign In',form=form)",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=LoginForm()\n    if form.validate_on_submit():\n        user=User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password_hash(form.password.data):\n            flash(\"Invalid username or password\")\n            return redirect(url_for('login'))\n        login_user(user,remember=form.remember_me.data)",
         "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for('index'))\n@app.route('/register',methods=['GET','POST'])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=RegistrationForm()\n    if form.validate_on_submit():\n        user=User(username=form.username.data,email=form.email.data)",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=RegistrationForm()\n    if form.validate_on_submit():\n        user=User(username=form.username.data,email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)\n        db.session.commit()\n        flash('Congratulations, you are now a registered user!')",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "user",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def user(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    posts=[\n        {'author':user,'body':'Test post #1'},\n        {'author':user,'body':'Test post #2'},\n    ]\n    return render_template('user.html',user=user,posts=posts)\n@app.route('/edit_profile',methods=['GET','POST'])\n@login_required\ndef edit_profile():",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "edit_profile",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def edit_profile():\n    form=EditProfileForm()\n    if form.validate_on_submit():\n        current_user.username=form.username.data\n        current_user.about_me=form.about_me.data\n        db.session.commit()\n        flash('Your changes have been saved')\n        return redirect(url_for('edit_profile'))\n    elif request.method=='GET':\n        form.username.data=current_user.username",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_seen')",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_seen')\n        batch_op.drop_column('about_me')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "revision = '2e99705fb473'\ndown_revision = 'b4bc7bacb571'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "down_revision = 'b4bc7bacb571'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:",
+        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )\n    with op.batch_alter_table('user', schema=None) as batch_op:",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "revision = '63b6500cd8e6'\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.63b6500cd8e6_users_table",
+        "description": "migrations.versions.63b6500cd8e6_users_table",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )",
+        "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')\n    )",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "revision = 'b4bc7bacb571'\ndown_revision = '63b6500cd8e6'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "down_revision = '63b6500cd8e6'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
+        "description": "migrations.versions.b4bc7bacb571_posts_table",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine_url",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\n            '%', '%%')\n    except AttributeError:\n        return str(get_engine().url).replace('%', '%%')\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_metadata",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.\n    Calls to context.execute() here emit the given string to the\n    script output.\n    \"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, 'autogenerate', False):",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "logger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_db",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "target_db = current_app.extensions['migrate'].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
+        "detail": "migrations.env",
         "documentation": {}
     },
     {
@@ -144,8 +792,17 @@
         "kind": 6,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "class Config(object):\n    SECRET_KEY=os.environ.get('SECRET_KEY') or 'you-will-never-guess'",
+        "peekOfCode": "class Config(object):\n    SECRET_KEY=os.environ.get('SECRET_KEY') or 'you-will-never-guess'\n    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')  or 'sqlite:///'+os.path.join(basedir,'app.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS=False\n    MAIL_SERVER=os.environ.get('MAIL_SERVER')\n    MAIL_PORT=int(os.environ.get('MAIL_PORT') or 25)\n    MAIL_USE_TLS=os.environ.get('MAIL_USE_TLS') is not None\n    MAIL_USERNAME=os.environ.get('MAIL_USERNAME')\n    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')\n    ADMINS=['harshpatadia4114@gmail.com']",
         "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "make_shell_context",
+        "kind": 2,
+        "importPath": "microblog",
+        "description": "microblog",
+        "peekOfCode": "def make_shell_context():\n    return {'db':db,'User':User,'Post':Post}",
+        "detail": "microblog",
         "documentation": {}
     }
 ]
