@@ -64,6 +64,22 @@
         "documentation": {}
     },
     {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "render_template",
         "importPath": "flask",
         "description": "flask",
@@ -216,7 +232,31 @@
         "documentation": {}
     },
     {
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Post",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -249,6 +289,22 @@
     },
     {
         "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -328,7 +384,23 @@
         "documentation": {}
     },
     {
+        "label": "EmptyForm",
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "isExtraImport": true,
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
         "label": "LoginForm",
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "isExtraImport": true,
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PostForm",
         "importPath": "app.forms",
         "description": "app.forms",
         "isExtraImport": true,
@@ -349,6 +421,30 @@
         "description": "werkzeug.urls",
         "isExtraImport": true,
         "detail": "werkzeug.urls",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -419,6 +515,15 @@
         "documentation": {}
     },
     {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
         "label": "not_found_error",
         "kind": 2,
         "importPath": "app.errors",
@@ -464,11 +569,29 @@
         "documentation": {}
     },
     {
+        "label": "EmptyForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class EmptyForm(FlaskForm):\n    submit = SubmitField('Submit')\nclass PostForm(FlaskForm):\n    post=TextAreaField('Say Something',validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField('Submit')",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PostForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class PostForm(FlaskForm):\n    post=TextAreaField('Say Something',validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField('Submit')",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class User(db.Model,UserMixin):\n    id = db.Column(db.Integer,primary_key=True)\n    username=db.Column(db.String(64),index=True,unique=True)\n    email=db.Column(db.String(120),index=True,unique=True)\n    password_hash=db.Column(db.String(128))\n    posts=db.relationship('Post',backref='author',lazy='dynamic')\n    about_me=db.Column(db.String(140))\n    last_seen=db.Column(db.DateTime,default=datetime.utcnow)\n    def __repr__(self):\n        return '<User {}>'.format(self.username)",
+        "peekOfCode": "class User(db.Model,UserMixin):\n    id = db.Column(db.Integer,primary_key=True)\n    username=db.Column(db.String(64),index=True,unique=True)\n    email=db.Column(db.String(120),index=True,unique=True)\n    password_hash=db.Column(db.String(128))\n    posts=db.relationship('Post',backref='author',lazy='dynamic')\n    about_me=db.Column(db.String(140))\n    last_seen=db.Column(db.DateTime,default=datetime.utcnow)\n    followed=db.relationship(\n        'User',secondary=followers,",
         "detail": "app.models",
         "documentation": {}
     },
@@ -495,7 +618,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen=datetime.utcnow()\n        db.session.commit()\n@app.route('/')\n@app.route('/index')\n@login_required\ndef index():\n    user={\"username\":\"John Doe\"}\n    posts=[{'author':'John','body':'I love eating apples.'},{'author':'Sarah','body':'The Avengers movie was so cool!'}]",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen=datetime.utcnow()\n        db.session.commit()\n@app.route('/',methods=['GET', 'POST'])\n@app.route('/index',methods=['GET', 'POST'])\n@login_required\ndef index():\n    form = PostForm()\n    posts = current_user.followed_posts().all()",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -504,7 +627,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def index():\n    user={\"username\":\"John Doe\"}\n    posts=[{'author':'John','body':'I love eating apples.'},{'author':'Sarah','body':'The Avengers movie was so cool!'}]\n    return render_template(\"index.html\",title=\"Home\",user=user,posts=posts)\n@app.route('/login',methods=['GET','POST'])\ndef login():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=LoginForm()\n    if form.validate_on_submit():",
+        "peekOfCode": "def index():\n    form = PostForm()\n    posts = current_user.followed_posts().all()\n    if form.validate_on_submit():\n        post = Post(body=form.post.data, author=current_user)\n        db.session.add(post)\n        db.session.commit()\n        flash('Your post is now live!')\n        return redirect(url_for('index'))\n    return render_template('index.html', title='Home Page', form=form,",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -540,7 +663,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def user(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    posts=[\n        {'author':user,'body':'Test post #1'},\n        {'author':user,'body':'Test post #2'},\n    ]\n    return render_template('user.html',user=user,posts=posts)\n@app.route('/edit_profile',methods=['GET','POST'])\n@login_required\ndef edit_profile():",
+        "peekOfCode": "def user(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    posts=[\n        {'author':user,'body':'Test post #1'},\n        {'author':user,'body':'Test post #2'},\n    ]\n    form=EmptyForm()\n    return render_template('user.html',user=user,posts=posts,form=form)\n@app.route('/edit_profile',methods=['GET','POST'])\n@login_required",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -550,6 +673,33 @@
         "importPath": "app.routes",
         "description": "app.routes",
         "peekOfCode": "def edit_profile():\n    form=EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username=form.username.data\n        current_user.about_me=form.about_me.data\n        db.session.commit()\n        flash('Your changes have been saved')\n        return redirect(url_for('edit_profile'))\n    elif request.method=='GET':\n        form.username.data=current_user.username",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "follow",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash('User {} not found.'.format(username))\n            return redirect(url_for('index'))\n        if user == current_user:\n            flash('You cannot follow yourself!')\n            return redirect(url_for('user', username=username))",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "unfollow",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash('User {} not found.'.format(username))\n            return redirect(url_for('index'))\n        if user == current_user:\n            flash('You cannot unfollow yourself!')\n            return redirect(url_for('user', username=username))",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "explore",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def explore():\n    posts=Post.query.order_by(Post.timestamp.desc()).all()\n    return render_template('index.html',title='Explore',posts=posts)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -664,6 +814,114 @@
     {
         "label": "upgrade",
         "kind": 2,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    op.drop_table('followers')\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "revision = '6dbe588c3a96'\ndown_revision = 'b6a454e91ef4'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "down_revision = 'b6a454e91ef4'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
+        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )\n    # ### end Alembic commands ###\ndef downgrade():",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_table('followers')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "revision = '92a13869555b'\ndown_revision = '2e99705fb473'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "down_revision = '2e99705fb473'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.92a13869555b_followers_relationship",
+        "description": "migrations.versions.92a13869555b_followers_relationship",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.92a13869555b_followers_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
         "importPath": "migrations.versions.b4bc7bacb571_posts_table",
         "description": "migrations.versions.b4bc7bacb571_posts_table",
         "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')\n    )",
@@ -713,6 +971,60 @@
         "description": "migrations.versions.b4bc7bacb571_posts_table",
         "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
         "detail": "migrations.versions.b4bc7bacb571_posts_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    op.drop_table('followers')\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "revision = 'b6a454e91ef4'\ndown_revision = '92a13869555b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "down_revision = '92a13869555b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
+        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
         "documentation": {}
     },
     {
@@ -803,6 +1115,24 @@
         "description": "microblog",
         "peekOfCode": "def make_shell_context():\n    return {'db':db,'User':User,'Post':Post}",
         "detail": "microblog",
+        "documentation": {}
+    },
+    {
+        "label": "UserModelCase",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app_context = app.app_context()\n        self.app_context.push()\n        db.create_all()\n    def tearDown(self):\n        db.session.remove()\n        db.drop_all()\n        self.app_context.pop()\n    def test_password_hashing(self):",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ['DATABASE_URL']",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "os.environ['DATABASE_URL'] = 'sqlite://'\nfrom datetime import datetime, timedelta\nimport unittest\nfrom app import app, db\nfrom app.models import User, Post\nclass UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app_context = app.app_context()\n        self.app_context.push()\n        db.create_all()",
+        "detail": "test",
         "documentation": {}
     }
 ]
