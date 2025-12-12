@@ -591,7 +591,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class User(db.Model,UserMixin):\n    id = db.Column(db.Integer,primary_key=True)\n    username=db.Column(db.String(64),index=True,unique=True)\n    email=db.Column(db.String(120),index=True,unique=True)\n    password_hash=db.Column(db.String(128))\n    posts=db.relationship('Post',backref='author',lazy='dynamic')\n    about_me=db.Column(db.String(140))\n    last_seen=db.Column(db.DateTime,default=datetime.utcnow)\n    followed=db.relationship(\n        'User',secondary=followers,",
+        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(128))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.utcnow)\n    followed = db.relationship(\n        \"User\",",
         "detail": "app.models",
         "documentation": {}
     },
@@ -600,7 +600,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(db.Model):\n    id=db.Column(db.Integer,primary_key=True)\n    body=db.Column(db.String(140))\n    timestamp=db.Column(db.DateTime,index=True,default=datetime.utcnow)\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    def __repr__(self):\n        return '<Post {}>'.format(self.body)",
+        "peekOfCode": "class Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -609,7 +609,16 @@
         "kind": 2,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id=db.Column(db.Integer,primary_key=True)\n    body=db.Column(db.String(140))\n    timestamp=db.Column(db.DateTime,index=True,default=datetime.utcnow)\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    def __repr__(self):\n        return '<Post {}>'.format(self.body)",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "followers",
+        "kind": 5,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(128))",
         "detail": "app.models",
         "documentation": {}
     },
@@ -618,7 +627,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen=datetime.utcnow()\n        db.session.commit()\n@app.route('/',methods=['GET', 'POST'])\n@app.route('/index',methods=['GET', 'POST'])\n@login_required\ndef index():\n    form = PostForm()\n    posts = current_user.followed_posts().all()",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\n@app.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -627,7 +636,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def index():\n    form = PostForm()\n    posts = current_user.followed_posts().all()\n    if form.validate_on_submit():\n        post = Post(body=form.post.data, author=current_user)\n        db.session.add(post)\n        db.session.commit()\n        flash('Your post is now live!')\n        return redirect(url_for('index'))\n    return render_template('index.html', title='Home Page', form=form,",
+        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        post = Post(body=form.post.data, author=current_user)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -636,7 +645,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=LoginForm()\n    if form.validate_on_submit():\n        user=User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password_hash(form.password.data):\n            flash(\"Invalid username or password\")\n            return redirect(url_for('login'))\n        login_user(user,remember=form.remember_me.data)",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password_hash(form.password.data):\n            flash(\"Invalid username or password\")\n            return redirect(url_for(\"login\"))\n        login_user(user, remember=form.remember_me.data)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -645,7 +654,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for('index'))\n@app.route('/register',methods=['GET','POST'])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=RegistrationForm()\n    if form.validate_on_submit():\n        user=User(username=form.username.data,email=form.email.data)",
+        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for(\"index\"))\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -654,7 +663,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=RegistrationForm()\n    if form.validate_on_submit():\n        user=User(username=form.username.data,email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)\n        db.session.commit()\n        flash('Congratulations, you are now a registered user!')",
+        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)\n        db.session.commit()\n        flash(\"Congratulations, you are now a registered user!\")",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -663,7 +672,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def user(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    posts=[\n        {'author':user,'body':'Test post #1'},\n        {'author':user,'body':'Test post #2'},\n    ]\n    form=EmptyForm()\n    return render_template('user.html',user=user,posts=posts,form=form)\n@app.route('/edit_profile',methods=['GET','POST'])\n@login_required",
+        "peekOfCode": "def user(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = user.posts.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"user\", username=user.username, page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"user\", username=user.username, page=posts.prev_num) if posts.has_prev else None\n    form = EmptyForm()\n    return render_template(",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -672,7 +681,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def edit_profile():\n    form=EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username=form.username.data\n        current_user.about_me=form.about_me.data\n        db.session.commit()\n        flash('Your changes have been saved')\n        return redirect(url_for('edit_profile'))\n    elif request.method=='GET':\n        form.username.data=current_user.username",
+        "peekOfCode": "def edit_profile():\n    form = EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username = form.username.data\n        current_user.about_me = form.about_me.data\n        db.session.commit()\n        flash(\"Your changes have been saved\")\n        return redirect(url_for(\"edit_profile\"))\n    elif request.method == \"GET\":\n        form.username.data = current_user.username",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -681,7 +690,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash('User {} not found.'.format(username))\n            return redirect(url_for('index'))\n        if user == current_user:\n            flash('You cannot follow yourself!')\n            return redirect(url_for('user', username=username))",
+        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(\"User {} not found.\".format(username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(\"You cannot follow yourself!\")\n            return redirect(url_for(\"user\", username=username))",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -690,7 +699,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash('User {} not found.'.format(username))\n            return redirect(url_for('index'))\n        if user == current_user:\n            flash('You cannot unfollow yourself!')\n            return redirect(url_for('user', username=username))",
+        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(\"User {} not found.\".format(username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(\"You cannot unfollow yourself!\")\n            return redirect(url_for(\"user\", username=username))",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -699,7 +708,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def explore():\n    posts=Post.query.order_by(Post.timestamp.desc()).all()\n    return render_template('index.html',title='Explore',posts=posts)",
+        "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    print(\n        \"DDDDDDDDDDDDDDDDDDDDDDDDD \", next_url, prev_url, posts.has_prev, posts.has_next\n    )",
         "detail": "app.routes",
         "documentation": {}
     },
