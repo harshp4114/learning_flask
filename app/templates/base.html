@@ -5,9 +5,10 @@
     {%else%}
     <title>Welcome to Microblog</title>
     {%endif%}
+    <link rel="stylesheet" href="../static/css/output.css">
   </head>
   <body>
-    <div>
+    <div class="bg-green-400 border-4 border-black">
       <a href="{{url_for('index')}}">Home</a>
       {%if current_user.is_anonymous%}
       <a href="{{url_for('login')}}">Login</a>
