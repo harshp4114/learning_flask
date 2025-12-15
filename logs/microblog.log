@@ -72,3 +72,4 @@ jinja2.exceptions.TemplateNotFound: bas e.html
 2025-12-15 12:43:01,527 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:48]
 2025-12-15 12:50:31,824 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:45]
 2025-12-15 12:54:23,840 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:45]
+2025-12-15 18:42:34,172 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:49]
