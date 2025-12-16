@@ -92,8 +92,33 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-      {{moment.include_moment()}}
-      {{moment.lang(g.locale)}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      function translate_client(sourceElem, destElem, sourceLang, destLang) {
+        // console.log("Translate clicked");
+
+        const originalHtml = $(destElem).html();
+
+        $(destElem).text("Translating...");
+
+        $.post("/translate", {
+          text: $(sourceElem).text(),
+          source_language: sourceLang,
+          dest_language: destLang
+        })
+          .done(function (response) {
+            $(destElem).text(response.text);
+          })
+          .fail(function () {
+            $(destElem).text("{{ _('Error: Could not contact server.') }}");
+
+            setTimeout(function () {
+              $(destElem).html(originalHtml);
+            }, 2000);
+          });
+      }
+    </script>
+
+    {{moment.include_moment()}} {{moment.lang(g.locale)}}
   </body>
-  </html>
-  
+</html>

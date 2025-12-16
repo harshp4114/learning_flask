@@ -106,6 +106,14 @@
         "documentation": {}
     },
     {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "db",
         "importPath": "app",
         "description": "app",
@@ -203,6 +211,14 @@
     },
     {
         "label": "g",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -402,6 +418,14 @@
         "documentation": {}
     },
     {
+        "label": "_",
+        "importPath": "flask_babel",
+        "description": "flask_babel",
+        "isExtraImport": true,
+        "detail": "flask_babel",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -580,10 +604,42 @@
     },
     {
         "label": "send_password_reset_email",
-        "importPath": "app.email",
-        "description": "app.email",
+        "importPath": "app.email2",
+        "description": "app.email2",
         "isExtraImport": true,
-        "detail": "app.email",
+        "detail": "app.email2",
+        "documentation": {}
+    },
+    {
+        "label": "detect",
+        "importPath": "langdetect",
+        "description": "langdetect",
+        "isExtraImport": true,
+        "detail": "langdetect",
+        "documentation": {}
+    },
+    {
+        "label": "translate",
+        "importPath": "app.translate",
+        "description": "app.translate",
+        "isExtraImport": true,
+        "detail": "app.translate",
+        "documentation": {}
+    },
+    {
+        "label": "Translator",
+        "importPath": "googletrans",
+        "description": "googletrans",
+        "isExtraImport": true,
+        "detail": "googletrans",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -716,28 +772,28 @@
     {
         "label": "send_async_email",
         "kind": 2,
-        "importPath": "app.email",
-        "description": "app.email",
+        "importPath": "app.email2",
+        "description": "app.email2",
         "peekOfCode": "def send_async_email(app,msg):\n    with app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):",
-        "detail": "app.email",
+        "detail": "app.email2",
         "documentation": {}
     },
     {
         "label": "send_email",
         "kind": 2,
-        "importPath": "app.email",
-        "description": "app.email",
+        "importPath": "app.email2",
+        "description": "app.email2",
         "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
-        "detail": "app.email",
+        "detail": "app.email2",
         "documentation": {}
     },
     {
         "label": "send_password_reset_email",
         "kind": 2,
-        "importPath": "app.email",
-        "description": "app.email",
+        "importPath": "app.email2",
+        "description": "app.email2",
         "peekOfCode": "def send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(\n        \"[Microblog] Reset Your Password\",\n        sender=app.config[\"ADMINS\"][0],\n        recipients=[user.email],\n        text_body=render_template(\"email/reset_password.txt\", user=user, token=token),\n        html_body=render_template(\"email/reset_password.html\", user=user, token=token),\n    )",
-        "detail": "app.email",
+        "detail": "app.email2",
         "documentation": {}
     },
     {
@@ -835,7 +891,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
+        "peekOfCode": "class Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -844,7 +900,7 @@
         "kind": 2,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -862,7 +918,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale=str(get_locale())\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\n@app.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\n@app.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -871,7 +927,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        post = Post(body=form.post.data, author=current_user)",
+        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        language = detect(form.post.data)",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -907,7 +963,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def user(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = user.posts.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"user\", username=user.username, page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"user\", username=user.username, page=posts.prev_num) if posts.has_prev else None\n    form = EmptyForm()\n    return render_template(",
+        "peekOfCode": "def user(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = user.posts.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = (\n        url_for(\"user\", username=user.username, page=posts.next_num)\n        if posts.has_next\n        else None",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -916,7 +972,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def reset_password_request():\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    form=ResetPasswordRequestForm()\n    if form.validate_on_submit():\n        user=User.query.filter_by(email=form.email.data).first()\n        if user:\n            send_password_reset_email(user)\n        flash(_('Check your email for the instructions to reset your password'))\n        return redirect(url_for('login'))",
+        "peekOfCode": "def reset_password_request():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = ResetPasswordRequestForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(email=form.email.data).first()\n        if user:\n            send_password_reset_email(user)\n        flash(_(\"Check your email for the instructions to reset your password\"))\n        return redirect(url_for(\"login\"))",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -925,7 +981,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def reset_password(token):\n    if current_user.is_authenticated:\n        return redirect(url_for('index'))\n    user = User.verify_reset_password_token(token)\n    if not user:\n        return redirect(url_for('index'))\n    form = ResetPasswordForm()\n    if form.validate_on_submit():\n        user.set_password(form.password.data)\n        db.session.commit()",
+        "peekOfCode": "def reset_password(token):\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    user = User.verify_reset_password_token(token)\n    if not user:\n        return redirect(url_for(\"index\"))\n    form = ResetPasswordForm()\n    if form.validate_on_submit():\n        user.set_password(form.password.data)\n        db.session.commit()",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -943,7 +999,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\",username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot follow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
+        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot follow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -952,7 +1008,7 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\",username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot unfollow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
+        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot unfollow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
         "detail": "app.routes",
         "documentation": {}
     },
@@ -961,8 +1017,26 @@
         "kind": 2,
         "importPath": "app.routes",
         "description": "app.routes",
-        "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    print(\n        \"DDDDDDDDDDDDDDDDDDDDDDDDD \", next_url, prev_url, posts.has_prev, posts.has_next\n    )",
+        "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    return render_template(\n        \"index.html\",\n        title=\"Explore\",",
         "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "translate_text",
+        "kind": 2,
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "peekOfCode": "def translate_text():\n    return jsonify(\n        {\n            \"text\": translate(\n                request.form[\"text\"],\n                request.form[\"source_language\"],\n                request.form[\"dest_language\"],\n            )\n        }\n    )",
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "translate",
+        "kind": 2,
+        "importPath": "app.translate",
+        "description": "app.translate",
+        "peekOfCode": "def translate(text,source_language,dest_language):\n    translator=Translator()\n    translated=translator.translate(text,src=source_language,dest=dest_language)\n    t=translated.text\n    return t",
+        "detail": "app.translate",
         "documentation": {}
     },
     {
@@ -1125,6 +1199,60 @@
         "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
         "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
         "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "revision = '8eb1726549a3'\ndown_revision = '6dbe588c3a96'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "down_revision = '6dbe588c3a96'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')",
+        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
         "documentation": {}
     },
     {
