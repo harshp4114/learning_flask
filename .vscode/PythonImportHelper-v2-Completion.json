@@ -1,28 +1,10 @@
 [
     {
-        "label": "os",
-        "kind": 6,
+        "label": "Message",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "click",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "click",
-        "description": "click",
-        "detail": "click",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
+        "detail": "flask_mail",
         "documentation": {}
     },
     {
@@ -58,6 +40,46 @@
         "documentation": {}
     },
     {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "db",
         "importPath": "app",
         "description": "app",
@@ -67,30 +89,6 @@
     },
     {
         "label": "login",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "db",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -146,15 +144,63 @@
         "documentation": {}
     },
     {
-        "label": "Message",
-        "importPath": "flask_mail",
-        "description": "flask_mail",
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
         "isExtraImport": true,
-        "detail": "flask_mail",
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
         "documentation": {}
     },
     {
         "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "g",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -234,6 +280,14 @@
         "documentation": {}
     },
     {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Thread",
         "importPath": "threading",
         "description": "threading",
@@ -247,6 +301,54 @@
         "description": "flask_wtf",
         "isExtraImport": true,
         "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
         "documentation": {}
     },
     {
@@ -327,6 +429,62 @@
         "description": "wtforms.validators",
         "isExtraImport": true,
         "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
         "documentation": {}
     },
     {
@@ -426,6 +584,38 @@
         "documentation": {}
     },
     {
+        "label": "lazy_gettext",
+        "importPath": "flask_babel",
+        "description": "flask_babel",
+        "isExtraImport": true,
+        "detail": "flask_babel",
+        "documentation": {}
+    },
+    {
+        "label": "_",
+        "importPath": "flask_babel",
+        "description": "flask_babel",
+        "isExtraImport": true,
+        "detail": "flask_babel",
+        "documentation": {}
+    },
+    {
+        "label": "get_locale",
+        "importPath": "flask_babel",
+        "description": "flask_babel",
+        "isExtraImport": true,
+        "detail": "flask_babel",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -458,23 +648,63 @@
         "documentation": {}
     },
     {
-        "label": "generate_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
+        "label": "LoginForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
         "isExtraImport": true,
-        "detail": "werkzeug.security",
+        "detail": "app.auth.forms",
         "documentation": {}
     },
     {
-        "label": "check_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
+        "label": "RegistrationForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
         "isExtraImport": true,
-        "detail": "werkzeug.security",
+        "detail": "app.auth.forms",
         "documentation": {}
     },
     {
-        "label": "UserMixin",
+        "label": "ResetPasswordForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "isExtraImport": true,
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordRequestForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "isExtraImport": true,
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "isExtraImport": true,
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
         "importPath": "flask_login",
         "description": "flask_login",
         "isExtraImport": true,
@@ -514,6 +744,144 @@
         "documentation": {}
     },
     {
+        "label": "UserMixin",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "urlsplit",
+        "importPath": "werkzeug.urls",
+        "description": "werkzeug.urls",
+        "isExtraImport": true,
+        "detail": "werkzeug.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlsplit",
+        "importPath": "werkzeug.urls",
+        "description": "werkzeug.urls",
+        "isExtraImport": true,
+        "detail": "werkzeug.urls",
+        "documentation": {}
+    },
+    {
+        "label": "send_password_reset_email",
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "isExtraImport": true,
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
+        "label": "send_password_reset_email",
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "isExtraImport": true,
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "isExtraImport": true,
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.errors",
+        "description": "app.errors",
+        "isExtraImport": true,
+        "detail": "app.errors",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileForm",
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "isExtraImport": true,
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "EmptyForm",
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "isExtraImport": true,
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PostForm",
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "isExtraImport": true,
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "detect",
+        "importPath": "langdetect",
+        "description": "langdetect",
+        "isExtraImport": true,
+        "detail": "langdetect",
+        "documentation": {}
+    },
+    {
+        "label": "translate",
+        "importPath": "app.translate",
+        "description": "app.translate",
+        "isExtraImport": true,
+        "detail": "app.translate",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.main",
+        "description": "app.main",
+        "isExtraImport": true,
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "click",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "click",
+        "description": "click",
+        "detail": "click",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
         "label": "md5",
         "importPath": "hashlib",
         "description": "hashlib",
@@ -536,94 +904,6 @@
         "importPath": "jwt",
         "description": "jwt",
         "detail": "jwt",
-        "documentation": {}
-    },
-    {
-        "label": "EditProfileForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "EmptyForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "LoginForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "PostForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "RegistrationForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "ResetPasswordForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "ResetPasswordRequestForm",
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "isExtraImport": true,
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "urlsplit",
-        "importPath": "werkzeug.urls",
-        "description": "werkzeug.urls",
-        "isExtraImport": true,
-        "detail": "werkzeug.urls",
-        "documentation": {}
-    },
-    {
-        "label": "send_password_reset_email",
-        "importPath": "app.email2",
-        "description": "app.email2",
-        "isExtraImport": true,
-        "detail": "app.email2",
-        "documentation": {}
-    },
-    {
-        "label": "detect",
-        "importPath": "langdetect",
-        "description": "langdetect",
-        "isExtraImport": true,
-        "detail": "langdetect",
-        "documentation": {}
-    },
-    {
-        "label": "translate",
-        "importPath": "app.translate",
-        "description": "app.translate",
-        "isExtraImport": true,
-        "detail": "app.translate",
         "documentation": {}
     },
     {
@@ -734,6 +1014,276 @@
         "documentation": {}
     },
     {
+        "label": "send_async_email",
+        "kind": 2,
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "peekOfCode": "def send_async_email(app,msg):\n    with app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):",
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
+        "label": "send_email",
+        "kind": 2,
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
+        "label": "send_password_reset_email",
+        "kind": 2,
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "peekOfCode": "def send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(\n        \"[Microblog] Reset Your Password\",\n        sender=current_app.config[\"ADMINS\"][0],\n        recipients=[user.email],\n        text_body=render_template(\"email/reset_password.txt\", user=user, token=token),\n        html_body=render_template(\"email/reset_password.html\", user=user, token=token),\n    )",
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    remember_me=BooleanField(_l('Remember Me'))\n    submit=SubmitField(_l('Sign up'))\nclass RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])\n    submit=SubmitField(_l('Register'))\n    def validate_username(self,username):\n        user=User.query.filter_by(username=username.data).first()\n        if user is not None:\n            raise ValidationError(_('Please use a different username.'))",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordRequestForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "before_request",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])\ndef login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = LoginForm()",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password_hash(form.password.data):\n            flash(_(\"Invalid username or password\"))\n            return redirect(url_for(\"auth.login\"))\n        login_user(user, remember=form.remember_me.data)",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for(\"main.index\"))\n@bp.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)\n        db.session.commit()\n        flash(_(\"Congratulations, you are now a registered user!\"))",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "reset_password_request",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def reset_password_request():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = ResetPasswordRequestForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(email=form.email.data).first()\n        if user:\n            send_password_reset_email(user)\n        flash(_(\"Check your email for the instructions to reset your password\"))\n        return redirect(url_for(\"auth.login\"))",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "reset_password",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def reset_password(token):\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    user = User.verify_reset_password_token(token)\n    if not user:\n        return redirect(url_for(\"main.index\"))\n    form = ResetPasswordForm()\n    if form.validate_on_submit():\n        user.set_password(form.password.data)\n        db.session.commit()",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "not_found_error",
+        "kind": 2,
+        "importPath": "app.errors.handlers",
+        "description": "app.errors.handlers",
+        "peekOfCode": "def not_found_error(error):\n    return render_template('errors/404.html'),404\n@bp.app_errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500",
+        "detail": "app.errors.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "internal_error",
+        "kind": 2,
+        "importPath": "app.errors.handlers",
+        "description": "app.errors.handlers",
+        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500",
+        "detail": "app.errors.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    remember_me=BooleanField(_l('Remember Me'))\n    submit=SubmitField(_l('Sign up'))\nclass RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])\n    submit=SubmitField(_l('Register'))\n    def validate_username(self,username):\n        user=User.query.filter_by(username=username.data).first()\n        if user is not None:\n            raise ValidationError(_('Please use a different username.'))",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "EditProfileForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class EditProfileForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    about_me=TextAreaField(_l('About me'),validators=[Length(min=0,max=140)])\n    submit=SubmitField(_l('Submit'))\n    def __init__(self, original_username, *args, **kwargs):\n        super(EditProfileForm, self).__init__(*args, **kwargs)\n        self.original_username = original_username\n    def validate_username(self, username):\n        if username.data != self.original_username:\n            user = User.query.filter_by(username=self.username.data).first()",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "EmptyForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class EmptyForm(FlaskForm):\n    submit = SubmitField(_l('Submit'))\nclass PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PostForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordRequestForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "before_request",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@bp.route(\"/\", methods=[\"GET\", \"POST\"])\n@bp.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"main.explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"main.explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        language = detect(form.post.data)",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "user",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def user(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = user.posts.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = (\n        url_for(\"main.user\", username=user.username, page=posts.next_num)\n        if posts.has_next\n        else None",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "edit_profile",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def edit_profile():\n    form = EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username = form.username.data\n        current_user.about_me = form.about_me.data\n        db.session.commit()\n        flash(_(\"Your changes have been saved\"))\n        return redirect(url_for(\"main.edit_profile\"))\n    elif request.method == \"GET\":\n        form.username.data = current_user.username",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "follow",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"main.index\"))\n        if user == current_user:\n            flash(_(\"You cannot follow yourself!\"))\n            return redirect(url_for(\"main.user\", username=username))",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "unfollow",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"main.index\"))\n        if user == current_user:\n            flash(_(\"You cannot unfollow yourself!\"))\n            return redirect(url_for(\"main.user\", username=username))",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "explore",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"main.explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"main.explore\", page=posts.prev_num) if posts.has_prev else None\n    return render_template(\n        \"index.html\",\n        title=\"Explore\",",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "translate_text",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def translate_text():\n    return jsonify(\n        {\n            \"text\": translate(\n                request.form[\"text\"],\n                request.form[\"source_language\"],\n                request.form[\"dest_language\"],\n            )\n        }\n    )",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
         "label": "translate",
         "kind": 2,
         "importPath": "app.cli",
@@ -770,114 +1320,6 @@
         "documentation": {}
     },
     {
-        "label": "send_async_email",
-        "kind": 2,
-        "importPath": "app.email2",
-        "description": "app.email2",
-        "peekOfCode": "def send_async_email(app,msg):\n    with app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):",
-        "detail": "app.email2",
-        "documentation": {}
-    },
-    {
-        "label": "send_email",
-        "kind": 2,
-        "importPath": "app.email2",
-        "description": "app.email2",
-        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
-        "detail": "app.email2",
-        "documentation": {}
-    },
-    {
-        "label": "send_password_reset_email",
-        "kind": 2,
-        "importPath": "app.email2",
-        "description": "app.email2",
-        "peekOfCode": "def send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(\n        \"[Microblog] Reset Your Password\",\n        sender=app.config[\"ADMINS\"][0],\n        recipients=[user.email],\n        text_body=render_template(\"email/reset_password.txt\", user=user, token=token),\n        html_body=render_template(\"email/reset_password.html\", user=user, token=token),\n    )",
-        "detail": "app.email2",
-        "documentation": {}
-    },
-    {
-        "label": "not_found_error",
-        "kind": 2,
-        "importPath": "app.errors",
-        "description": "app.errors",
-        "peekOfCode": "def not_found_error(error):\n    return render_template('404.html'),404\n@app.errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    return render_template('500.html'),500",
-        "detail": "app.errors",
-        "documentation": {}
-    },
-    {
-        "label": "internal_error",
-        "kind": 2,
-        "importPath": "app.errors",
-        "description": "app.errors",
-        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    return render_template('500.html'),500",
-        "detail": "app.errors",
-        "documentation": {}
-    },
-    {
-        "label": "LoginForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class LoginForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    remember_me=BooleanField(_l('Remember Me'))\n    submit=SubmitField(_l('Sign up'))\nclass RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "RegistrationForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    password=PasswordField(_l('Password'),validators=[DataRequired()])\n    password2=PasswordField(_l('Repeat Password'),validators=[DataRequired(),EqualTo('password')])\n    submit=SubmitField(_l('Register'))\n    def validate_username(self,username):\n        user=User.query.filter_by(username=username.data).first()\n        if user is not None:\n            raise ValidationError(_('Please use a different username.'))",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "EditProfileForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class EditProfileForm(FlaskForm):\n    username=StringField(_l('Username'),validators=[DataRequired()])\n    about_me=TextAreaField(_l('About me'),validators=[Length(min=0,max=140)])\n    submit=SubmitField(_l('Submit'))\n    def __init__(self, original_username, *args, **kwargs):\n        super(EditProfileForm, self).__init__(*args, **kwargs)\n        self.original_username = original_username\n    def validate_username(self, username):\n        if username.data != self.original_username:\n            user = User.query.filter_by(username=self.username.data).first()",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "EmptyForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class EmptyForm(FlaskForm):\n    submit = SubmitField(_l('Submit'))\nclass PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "PostForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "ResetPasswordRequestForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
-        "label": "ResetPasswordForm",
-        "kind": 6,
-        "importPath": "app.forms",
-        "description": "app.forms",
-        "peekOfCode": "class ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
-        "detail": "app.forms",
-        "documentation": {}
-    },
-    {
         "label": "User",
         "kind": 6,
         "importPath": "app.models",
@@ -911,123 +1353,6 @@
         "description": "app.models",
         "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(128))",
         "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "before_request",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\n@app.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "index",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        language = detect(form.post.data)",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "login",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password_hash(form.password.data):\n            flash(_(\"Invalid username or password\"))\n            return redirect(url_for(\"login\"))\n        login_user(user, remember=form.remember_me.data)",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "logout",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for(\"index\"))\n@app.route(\"/register\", methods=[\"GET\", \"POST\"])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "register",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        user = User(username=form.username.data, email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)\n        db.session.commit()\n        flash(_(\"Congratulations, you are now a registered user!\"))",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "user",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def user(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = user.posts.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = (\n        url_for(\"user\", username=user.username, page=posts.next_num)\n        if posts.has_next\n        else None",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "reset_password_request",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def reset_password_request():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    form = ResetPasswordRequestForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(email=form.email.data).first()\n        if user:\n            send_password_reset_email(user)\n        flash(_(\"Check your email for the instructions to reset your password\"))\n        return redirect(url_for(\"login\"))",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "reset_password",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def reset_password(token):\n    if current_user.is_authenticated:\n        return redirect(url_for(\"index\"))\n    user = User.verify_reset_password_token(token)\n    if not user:\n        return redirect(url_for(\"index\"))\n    form = ResetPasswordForm()\n    if form.validate_on_submit():\n        user.set_password(form.password.data)\n        db.session.commit()",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "edit_profile",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def edit_profile():\n    form = EditProfileForm(current_user.username)\n    if form.validate_on_submit():\n        current_user.username = form.username.data\n        current_user.about_me = form.about_me.data\n        db.session.commit()\n        flash(_(\"Your changes have been saved\"))\n        return redirect(url_for(\"edit_profile\"))\n    elif request.method == \"GET\":\n        form.username.data = current_user.username",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "follow",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def follow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot follow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "unfollow",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def unfollow(username):\n    form = EmptyForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=username).first()\n        if user is None:\n            flash(_(\"User %(username)s not found.\", username=username))\n            return redirect(url_for(\"index\"))\n        if user == current_user:\n            flash(_(\"You cannot unfollow yourself!\"))\n            return redirect(url_for(\"user\", username=username))",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "explore",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"explore\", page=posts.prev_num) if posts.has_prev else None\n    return render_template(\n        \"index.html\",\n        title=\"Explore\",",
-        "detail": "app.routes",
-        "documentation": {}
-    },
-    {
-        "label": "translate_text",
-        "kind": 2,
-        "importPath": "app.routes",
-        "description": "app.routes",
-        "peekOfCode": "def translate_text():\n    return jsonify(\n        {\n            \"text\": translate(\n                request.form[\"text\"],\n                request.form[\"source_language\"],\n                request.form[\"dest_language\"],\n            )\n        }\n    )",
-        "detail": "app.routes",
         "documentation": {}
     },
     {

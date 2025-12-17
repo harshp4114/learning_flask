@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+# from app.main import routes
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -17,11 +18,13 @@ app.config.from_object(Config)
 db=SQLAlchemy(app)
 migrate=Migrate(app,db)
 login=LoginManager(app)
-login.login_view='login'
+login.login_view='auth.login'
 mail=Mail(app)
 bootstrap=Bootstrap(app)
 moment=Moment(app)
 babel=Babel(app)
+
+
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
@@ -56,5 +59,14 @@ def get_locale():
 
 babel.init_app(app,locale_selector=get_locale)
 
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
+
+from app.auth import bp as auth_bp
+app.register_blueprint(auth_bp)
+
+from app.main import bp as main_bp
+app.register_blueprint(main_bp)
+
 from app import cli
-from app import routes,models,errors
+from app import models

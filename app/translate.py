@@ -1,5 +1,3 @@
-from flask_babel import _
-from app import app
 from googletrans import Translator
 
 def translate(text,source_language,dest_language):
