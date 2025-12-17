@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, g
-from app import app, db
+from app import db
 from app.auth.forms import (
     LoginForm,
     RegistrationForm,

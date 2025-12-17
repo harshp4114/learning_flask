@@ -1,109 +1,16 @@
-2025-12-12 13:04:37,875 ERROR: Exception on /favicon.ico [GET] [in /home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 891, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 500, in raise_routing_exception
-    raise request.routing_exception  # type: ignore[misc]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/ctx.py", line 362, in match_request
-    result = self.url_adapter.match(return_rule=True)  # type: ignore
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/werkzeug/routing/map.py", line 629, in match
-    raise NotFound() from None
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 802, in handle_user_exception
-    return self.handle_http_exception(e)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/app.py", line 777, in handle_http_exception
-    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/app/errors.py", line 6, in not_found_error
-    return render_template('404.html'),404
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/harsh/projects/internship_flask/app/templates/404.html", line 1, in top-level template code
-    {% extends 'bas e.html'%}
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/templating.py", line 65, in get_source
-    return self._get_source_fast(environment, template)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/harsh/projects/internship_flask/flask_env/lib/python3.12/site-packages/flask/templating.py", line 99, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: bas e.html
-2025-12-12 13:04:47,677 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:11:43,617 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:17:12,830 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:29:50,602 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:30:15,784 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:30:34,390 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:31:01,775 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:32:04,616 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:32:14,771 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:32:34,799 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:32:38,389 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:32:49,413 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:33:08,816 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 13:34:29,991 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 15:20:00,921 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-12 16:25:03,030 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:43]
-2025-12-15 12:10:34,861 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:45]
-2025-12-15 12:42:11,529 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:47]
-2025-12-15 12:43:01,527 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:48]
-2025-12-15 12:50:31,824 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:45]
-2025-12-15 12:54:23,840 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:45]
-2025-12-15 18:42:34,172 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:49]
-2025-12-16 12:32:23,500 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:32:43,387 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:33:13,899 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:33:20,232 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:33:26,403 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:33:32,536 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:33:54,627 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:34:15,425 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:39:12,814 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:39:21,261 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:39:33,307 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:40:17,098 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:40:23,908 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:41:50,050 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:42:04,137 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:05,021 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:08,712 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:21,055 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:31,959 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:42,296 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:43:46,264 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:46:18,429 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:46:29,762 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:46:52,864 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:47:02,548 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 12:47:07,586 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 15:47:01,939 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 15:50:04,900 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 16:30:03,167 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 16:54:26,392 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 17:20:20,159 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 17:27:50,681 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 17:29:43,842 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
-2025-12-16 17:40:41,006 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:52]
+2025-12-17 15:53:39,504 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 15:54:06,640 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 15:54:07,312 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:13:11,415 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:14:47,888 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:30:54,440 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:30:55,320 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:40:12,727 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:40:35,564 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:40:51,846 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:40:55,743 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:40:58,906 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:41:02,366 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:41:20,237 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:41:24,339 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]
+2025-12-17 16:41:34,794 INFO: Microblog startup [in /home/harsh/projects/internship_flask/app/__init__.py:74]

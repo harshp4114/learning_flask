@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-16 12:47+0530\n"
+"POT-Creation-Date: 2025-12-17 16:41+0530\n"
 "PO-Revision-Date: 2025-12-16 11:50+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,115 +18,124 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app/forms.py:8 app/forms.py:14 app/forms.py:31
+#: app/auth/forms.py:8 app/auth/forms.py:14 app/main/forms.py:8
+#: app/main/forms.py:14 app/main/forms.py:31
 msgid "Username"
 msgstr "Nom d’utilisateur"
 
-#: app/forms.py:9 app/forms.py:16 app/forms.py:57
+#: app/auth/forms.py:9 app/auth/forms.py:16 app/auth/forms.py:35
+#: app/main/forms.py:9 app/main/forms.py:16 app/main/forms.py:57
 msgid "Password"
 msgstr "Mot de passe"
 
-#: app/forms.py:10
+#: app/auth/forms.py:10 app/main/forms.py:10
 msgid "Remember Me"
 msgstr "Se souvenir de moi"
 
-#: app/forms.py:11
+#: app/auth/forms.py:11 app/main/forms.py:11
 msgid "Sign up"
 msgstr "S’inscrire"
 
-#: app/forms.py:15 app/forms.py:53
+#: app/auth/forms.py:15 app/auth/forms.py:31 app/main/forms.py:15
+#: app/main/forms.py:53
 msgid "Email"
 msgstr "E-mail"
 
-#: app/forms.py:17 app/forms.py:59
+#: app/auth/forms.py:17 app/auth/forms.py:37 app/main/forms.py:17
+#: app/main/forms.py:59
 msgid "Repeat Password"
 msgstr "Répéter le mot de passe"
 
-#: app/forms.py:18
+#: app/auth/forms.py:18 app/main/forms.py:18
 msgid "Register"
 msgstr "S’inscrire"
 
-#: app/forms.py:23 app/forms.py:43
+#: app/auth/forms.py:23 app/main/forms.py:23 app/main/forms.py:43
 msgid "Please use a different username."
 msgstr "Veuillez utiliser un nom d’utilisateur différent."
 
-#: app/forms.py:28
+#: app/auth/forms.py:28 app/main/forms.py:28
 msgid "Please use another email."
 msgstr "Veuillez utiliser une autre adresse e-mail."
 
-#: app/forms.py:32
-msgid "About me"
-msgstr "À propos de moi"
-
-#: app/forms.py:33 app/forms.py:46 app/forms.py:50
-msgid "Submit"
-msgstr "Soumettre"
-
-#: app/forms.py:49
-msgid "Say Something"
-msgstr "Dites quelque chose"
-
-#: app/forms.py:54 app/forms.py:60
+#: app/auth/forms.py:32 app/auth/forms.py:38 app/main/forms.py:54
+#: app/main/forms.py:60
 msgid "Request Password Reset"
 msgstr "Demander la réinitialisation du mot de passe"
 
-#: app/routes.py:35
-msgid "Your post is now live!"
-msgstr "Votre publication est maintenant en ligne !"
-
-#: app/routes.py:55
+#: app/auth/routes.py:35
 msgid "Invalid username or password"
 msgstr "Nom d’utilisateur ou mot de passe invalide"
 
-#: app/routes.py:81
+#: app/auth/routes.py:61
 msgid "Congratulations, you are now a registered user!"
 msgstr "Félicitations, vous êtes maintenant un utilisateur enregistré !"
 
-#: app/routes.py:115
+#: app/auth/routes.py:75
 msgid "Check your email for the instructions to reset your password"
 msgstr ""
 "Vérifiez votre e-mail pour les instructions de réinitialisation de votre "
 "mot de passe"
 
-#: app/routes.py:130
+#: app/auth/routes.py:93
 msgid "Your password has been reset."
 msgstr "Votre mot de passe a été réinitialisé."
 
-#: app/routes.py:142
+#: app/main/forms.py:32
+msgid "About me"
+msgstr "À propos de moi"
+
+#: app/main/forms.py:33 app/main/forms.py:46 app/main/forms.py:50
+msgid "Submit"
+msgstr "Soumettre"
+
+#: app/main/forms.py:49
+msgid "Say Something"
+msgstr "Dites quelque chose"
+
+#: app/main/routes.py:42
+msgid "Your post is now live!"
+msgstr "Votre publication est maintenant en ligne !"
+
+#: app/main/routes.py:91
 msgid "Your changes have been saved"
 msgstr "Vos modifications ont été enregistrées"
 
-#: app/routes.py:158 app/routes.py:181
+#: app/main/routes.py:107 app/main/routes.py:130
 #, python-format
 msgid "User %(username)s not found."
 msgstr "Utilisateur %(username)s introuvable."
 
-#: app/routes.py:162
+#: app/main/routes.py:111
 msgid "You cannot follow yourself!"
 msgstr "Vous ne pouvez pas vous suivre vous-même !"
 
-#: app/routes.py:168
+#: app/main/routes.py:117
 #, python-format
 msgid "You are following %(username)s !"
 msgstr "Vous suivez %(username)s !"
 
-#: app/routes.py:184
+#: app/main/routes.py:133
 msgid "You cannot unfollow yourself!"
 msgstr "Vous ne pouvez pas vous désabonner de vous-même !"
 
-#: app/routes.py:188
+#: app/main/routes.py:137
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "Vous ne suivez pas %(username)s."
-
-#: app/templates/404.html:4
-msgid "Not Found"
-msgstr "Non trouvé"
 
 #: app/templates/_post.html:14
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s a dit %(when)s"
+
+#: app/templates/_post.html:20
+msgid "See translation"
+msgstr ""
+
+#: app/templates/base.html:113
+msgid "Error: Could not contact server."
+msgstr ""
 
 #: app/templates/index.html:5
 #, python-format
@@ -140,6 +149,10 @@ msgstr "Publications plus récentes"
 #: app/templates/index.html:21
 msgid "Older posts"
 msgstr "Publications plus anciennes"
+
+#: app/templates/errors/404.html:4
+msgid "Not Found"
+msgstr "Non trouvé"
 
 #~ msgid "%(translated_post)s"
 #~ msgstr ""

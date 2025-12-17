@@ -16,15 +16,7 @@
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
+        "label": "db",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -40,39 +32,7 @@
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
         "label": "db",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -96,22 +56,6 @@
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
         "label": "db",
         "importPath": "app",
         "description": "app",
@@ -121,6 +65,14 @@
     },
     {
         "label": "cli",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -265,6 +217,14 @@
     },
     {
         "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -1018,7 +978,7 @@
         "kind": 2,
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
-        "peekOfCode": "def send_async_email(app,msg):\n    with app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):",
+        "peekOfCode": "def send_async_email(app,msg):\n    with current_app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(current_app.get_current_object(),msg)).start()\ndef send_password_reset_email(user):",
         "detail": "app.auth.email2",
         "documentation": {}
     },
@@ -1027,7 +987,7 @@
         "kind": 2,
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
-        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(app,msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
+        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(current_app.get_current_object(),msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
         "detail": "app.auth.email2",
         "documentation": {}
     },
@@ -1284,38 +1244,11 @@
         "documentation": {}
     },
     {
-        "label": "translate",
+        "label": "register",
         "kind": 2,
         "importPath": "app.cli",
         "description": "app.cli",
-        "peekOfCode": "def translate():\n    '''Translation and localization commands'''\n    pass\n@translate.command()\n@click.argument('lang')\ndef init(lang):\n    '''Initialize a new language'''\n    if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):\n        raise RuntimeError('extract command failed')\n    if os.system('pybabel init -i messages.pot -d app/translations -l '+lang):",
-        "detail": "app.cli",
-        "documentation": {}
-    },
-    {
-        "label": "init",
-        "kind": 2,
-        "importPath": "app.cli",
-        "description": "app.cli",
-        "peekOfCode": "def init(lang):\n    '''Initialize a new language'''\n    if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):\n        raise RuntimeError('extract command failed')\n    if os.system('pybabel init -i messages.pot -d app/translations -l '+lang):\n        raise RuntimeError('init command failed')\n    os.remove('messages.pot')\n@translate.command()\ndef update():\n    '''Update all languages'''",
-        "detail": "app.cli",
-        "documentation": {}
-    },
-    {
-        "label": "update",
-        "kind": 2,
-        "importPath": "app.cli",
-        "description": "app.cli",
-        "peekOfCode": "def update():\n    '''Update all languages'''\n    if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):\n        raise RuntimeError('extract command failed')\n    if os.system('pybabel update -i messages.pot -d app/translations'):\n        raise RuntimeError('update command failed')\n    os.remove('messages.pot')\n@translate.command()\ndef compile():\n    '''Compile all languages'''",
-        "detail": "app.cli",
-        "documentation": {}
-    },
-    {
-        "label": "compile",
-        "kind": 2,
-        "importPath": "app.cli",
-        "description": "app.cli",
-        "peekOfCode": "def compile():\n    '''Compile all languages'''\n    if os.system('pybabel compile -d app/translations'):\n        raise RuntimeError('compile command failed')",
+        "peekOfCode": "def register(app):\n    @app.cli.group()\n    def translate():\n        '''Translation and localization commands'''\n        pass\n    @translate.command()\n    @click.argument('lang')\n    def init(lang):\n        '''Initialize a new language'''\n        if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):",
         "detail": "app.cli",
         "documentation": {}
     },
