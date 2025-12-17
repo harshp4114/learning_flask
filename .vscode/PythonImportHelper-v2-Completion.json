@@ -80,7 +80,7 @@
         "documentation": {}
     },
     {
-        "label": "app",
+        "label": "db",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -88,7 +88,7 @@
         "documentation": {}
     },
     {
-        "label": "db",
+        "label": "create_app",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -965,12 +965,28 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "unittest",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "unittest",
         "description": "unittest",
         "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
         "documentation": {}
     },
     {
@@ -1752,7 +1768,7 @@
         "kind": 6,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "class Config(object):\n    SECRET_KEY=os.environ.get('SECRET_KEY') or 'you-will-never-guess'\n    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')  or 'sqlite:///'+os.path.join(basedir,'app.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS=False\n    MAIL_SERVER=os.environ.get('MAIL_SERVER') or 'localhost'\n    MAIL_PORT=int(os.environ.get('MAIL_PORT') or 8025)\n    MAIL_USE_TLS=os.environ.get('MAIL_USE_TLS') is not None\n    MAIL_USERNAME=os.environ.get('MAIL_USERNAME') \n    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD') \n    ADMINS=['harshpatadia4114@gmail.com']",
+        "peekOfCode": "class Config(object):\n    SECRET_KEY=os.environ.get('SECRET_KEY')\n    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')  or 'sqlite:///'+os.path.join(basedir,'app.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS=False\n    MAIL_SERVER=os.environ.get('MAIL_SERVER') \n    MAIL_PORT=int(os.environ.get('MAIL_PORT'))\n    MAIL_USE_TLS=os.environ.get('MAIL_USE_TLS') is not None\n    MAIL_USERNAME=os.environ.get('MAIL_USERNAME') \n    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD') \n    ADMINS=['harshpatadia4114@gmail.com']",
         "detail": "config",
         "documentation": {}
     },
@@ -1766,11 +1782,20 @@
         "documentation": {}
     },
     {
+        "label": "TestConfig",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class TestConfig(Config):\n    TESTING=True\n    SQLALCHEMY_DATABASE_URI='sqlite://'\nclass UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app=create_app(TestConfig)\n        self.app_context = self.app.app_context()\n        self.app_context.push()\n        db.create_all()\n    def tearDown(self):",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
         "label": "UserModelCase",
         "kind": 6,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "class UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app_context = app.app_context()\n        self.app_context.push()\n        db.create_all()\n    def tearDown(self):\n        db.session.remove()\n        db.drop_all()\n        self.app_context.pop()\n    def test_password_hashing(self):",
+        "peekOfCode": "class UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app=create_app(TestConfig)\n        self.app_context = self.app.app_context()\n        self.app_context.push()\n        db.create_all()\n    def tearDown(self):\n        db.session.remove()\n        db.drop_all()\n        self.app_context.pop()",
         "detail": "test",
         "documentation": {}
     },
@@ -1779,7 +1804,7 @@
         "kind": 5,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "os.environ['DATABASE_URL'] = 'sqlite://'\nfrom datetime import datetime, timedelta\nimport unittest\nfrom app import app, db\nfrom app.models import User, Post\nclass UserModelCase(unittest.TestCase):\n    def setUp(self):\n        self.app_context = app.app_context()\n        self.app_context.push()\n        db.create_all()",
+        "peekOfCode": "os.environ['DATABASE_URL'] = 'sqlite://'\nfrom datetime import datetime, timedelta\nimport unittest\nfrom app import db,create_app\nfrom app.models import User, Post\nfrom config import Config\nclass TestConfig(Config):\n    TESTING=True\n    SQLALCHEMY_DATABASE_URI='sqlite://'\nclass UserModelCase(unittest.TestCase):",
         "detail": "test",
         "documentation": {}
     }

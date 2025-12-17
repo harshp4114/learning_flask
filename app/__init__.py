@@ -10,7 +10,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel
-from flask import request, current_app
+from flask import request
 
 db=SQLAlchemy()
 migrate=Migrate()
