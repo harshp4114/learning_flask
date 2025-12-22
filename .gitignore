@@ -3,3 +3,4 @@ app/__pycache__
 flask_env
 flask_env/
 *.pyc
+logs/
