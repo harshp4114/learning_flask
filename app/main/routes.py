@@ -37,8 +37,8 @@ def index():
     posts = current_user.followed_posts().paginate(
         page=page, per_page=current_app.config["POSTS_PER_PAGE"], error_out=False
     )
-    next_url = url_for("main.explore", page=posts.next_num) if posts.has_next else None
-    prev_url = url_for("main.explore", page=posts.prev_num) if posts.has_prev else None
+    next_url = url_for("main.index", page=posts.next_num) if posts.has_next else None
+    prev_url = url_for("main.index", page=posts.prev_num) if posts.has_prev else None
     if form.validate_on_submit():
         language = detect(form.post.data)
         if language == "UNKNOWN" or len(language) > 5:
@@ -165,6 +165,13 @@ def explore():
         prev_url=prev_url,
     )
 
+
+@bp.route("/user/<username>/popup")
+@login_required
+def user_popup(username):
+    user=User.query.filter_by(username=username).first_or_404()
+    form = EmptyForm()
+    return render_template('user_popup.html',user=user,form=form)
 
 @bp.route("/translate", methods=["POST"])
 @login_required

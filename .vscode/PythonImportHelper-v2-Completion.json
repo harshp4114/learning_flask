@@ -1183,7 +1183,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"main.explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"main.explore\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        language = detect(form.post.data)",
+        "peekOfCode": "def index():\n    form = PostForm()\n    page = request.args.get(\"page\", 1, type=int)\n    posts = current_user.followed_posts().paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"main.index\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"main.index\", page=posts.prev_num) if posts.has_prev else None\n    if form.validate_on_submit():\n        language = detect(form.post.data)",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1229,6 +1229,15 @@
         "importPath": "app.main.routes",
         "description": "app.main.routes",
         "peekOfCode": "def explore():\n    page = request.args.get(\"page\", 1, type=int)\n    posts = Post.query.order_by(Post.timestamp.desc()).paginate(\n        page=page, per_page=current_app.config[\"POSTS_PER_PAGE\"], error_out=False\n    )\n    next_url = url_for(\"main.explore\", page=posts.next_num) if posts.has_next else None\n    prev_url = url_for(\"main.explore\", page=posts.prev_num) if posts.has_prev else None\n    return render_template(\n        \"index.html\",\n        title=\"Explore\",",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "user_popup",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def user_popup(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    form = EmptyForm()\n    return render_template('user_popup.html',user=user,form=form)\n@bp.route(\"/translate\", methods=[\"POST\"])\n@login_required\ndef translate_text():\n    return jsonify(\n        {\n            \"text\": translate(",
         "detail": "app.main.routes",
         "documentation": {}
     },
