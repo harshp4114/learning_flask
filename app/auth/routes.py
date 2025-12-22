@@ -1,5 +1,4 @@
-from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, g
+from flask import render_template, flash, redirect, url_for, request
 from app import db
 from app.auth.forms import (
     LoginForm,
@@ -11,16 +10,8 @@ from app.models import  User
 from flask_login import login_user, current_user, logout_user
 from werkzeug.urls import urlsplit
 from app.auth.email2 import send_password_reset_email
-from flask_babel import _, get_locale
+from flask_babel import _
 from app.auth import bp
-
-
-@bp.before_request
-def before_request():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
-        db.session.commit()
-    g.locale = str(get_locale())
 
 
 

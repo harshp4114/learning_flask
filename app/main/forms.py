@@ -3,6 +3,7 @@ from wtforms import StringField,PasswordField,BooleanField,SubmitField, TextArea
 from wtforms.validators import DataRequired, Email,EqualTo, ValidationError, Length
 from app.models import User
 from flask_babel import _,lazy_gettext as _l
+from flask import request
 
 class LoginForm(FlaskForm):
     username=StringField(_l('Username'),validators=[DataRequired()])
@@ -49,12 +50,12 @@ class PostForm(FlaskForm):
     post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])
     submit=SubmitField(_l('Submit'))
 
-class ResetPasswordRequestForm(FlaskForm):
-    email=StringField(_l('Email'),validators=[DataRequired(),Email()])
-    submit=SubmitField(_l('Request Password Reset'))
+class SearchForm(FlaskForm):
+    q=StringField(_l("Search"),validators=[DataRequired()])
 
-class ResetPasswordForm(FlaskForm):
-    password = PasswordField(_l('Password'), validators=[DataRequired()])
-    password2 = PasswordField(
-        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField(_l('Request Password Reset'))
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata']=request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['meta']={'csrf':False}
+        super(SearchForm,self).__init__(*args,**kwargs)

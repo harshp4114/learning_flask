@@ -152,7 +152,7 @@
         "documentation": {}
     },
     {
-        "label": "g",
+        "label": "render_template",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -160,7 +160,7 @@
         "documentation": {}
     },
     {
-        "label": "render_template",
+        "label": "request",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -217,6 +217,14 @@
     },
     {
         "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -528,14 +536,6 @@
         "documentation": {}
     },
     {
-        "label": "get_locale",
-        "importPath": "flask_babel",
-        "description": "flask_babel",
-        "isExtraImport": true,
-        "detail": "flask_babel",
-        "documentation": {}
-    },
-    {
         "label": "_",
         "importPath": "flask_babel",
         "description": "flask_babel",
@@ -565,46 +565,6 @@
         "description": "flask_babel",
         "isExtraImport": true,
         "detail": "flask_babel",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -640,14 +600,6 @@
         "documentation": {}
     },
     {
-        "label": "LoginForm",
-        "importPath": "app.auth.forms",
-        "description": "app.auth.forms",
-        "isExtraImport": true,
-        "detail": "app.auth.forms",
-        "documentation": {}
-    },
-    {
         "label": "login_user",
         "importPath": "flask_login",
         "description": "flask_login",
@@ -672,23 +624,7 @@
         "documentation": {}
     },
     {
-        "label": "login_user",
-        "importPath": "flask_login",
-        "description": "flask_login",
-        "isExtraImport": true,
-        "detail": "flask_login",
-        "documentation": {}
-    },
-    {
         "label": "current_user",
-        "importPath": "flask_login",
-        "description": "flask_login",
-        "isExtraImport": true,
-        "detail": "flask_login",
-        "documentation": {}
-    },
-    {
-        "label": "logout_user",
         "importPath": "flask_login",
         "description": "flask_login",
         "isExtraImport": true,
@@ -720,22 +656,6 @@
         "documentation": {}
     },
     {
-        "label": "urlsplit",
-        "importPath": "werkzeug.urls",
-        "description": "werkzeug.urls",
-        "isExtraImport": true,
-        "detail": "werkzeug.urls",
-        "documentation": {}
-    },
-    {
-        "label": "send_password_reset_email",
-        "importPath": "app.auth.email2",
-        "description": "app.auth.email2",
-        "isExtraImport": true,
-        "detail": "app.auth.email2",
-        "documentation": {}
-    },
-    {
         "label": "send_password_reset_email",
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
@@ -760,6 +680,38 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "EditProfileForm",
         "importPath": "app.main.forms",
         "description": "app.main.forms",
@@ -777,6 +729,14 @@
     },
     {
         "label": "PostForm",
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "isExtraImport": true,
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "SearchForm",
         "importPath": "app.main.forms",
         "description": "app.main.forms",
         "isExtraImport": true,
@@ -864,6 +824,38 @@
         "importPath": "jwt",
         "description": "jwt",
         "detail": "jwt",
+        "documentation": {}
+    },
+    {
+        "label": "add_to_index",
+        "importPath": "app.search",
+        "description": "app.search",
+        "isExtraImport": true,
+        "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "query_index",
+        "importPath": "app.search",
+        "description": "app.search",
+        "isExtraImport": true,
+        "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "remove_from_index",
+        "importPath": "app.search",
+        "description": "app.search",
+        "isExtraImport": true,
+        "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "reduce",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
         "documentation": {}
     },
     {
@@ -1053,15 +1045,6 @@
         "documentation": {}
     },
     {
-        "label": "before_request",
-        "kind": 2,
-        "importPath": "app.auth.routes",
-        "description": "app.auth.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])\ndef login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"main.index\"))\n    form = LoginForm()",
-        "detail": "app.auth.routes",
-        "documentation": {}
-    },
-    {
         "label": "login",
         "kind": 2,
         "importPath": "app.auth.routes",
@@ -1156,7 +1139,7 @@
         "kind": 6,
         "importPath": "app.main.forms",
         "description": "app.main.forms",
-        "peekOfCode": "class EmptyForm(FlaskForm):\n    submit = SubmitField(_l('Submit'))\nclass PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])",
+        "peekOfCode": "class EmptyForm(FlaskForm):\n    submit = SubmitField(_l('Submit'))\nclass PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass SearchForm(FlaskForm):\n    q=StringField(_l(\"Search\"),validators=[DataRequired()])\n    def __init__(self, *args, **kwargs):\n        if 'formdata' not in kwargs:\n            kwargs['formdata']=request.args",
         "detail": "app.main.forms",
         "documentation": {}
     },
@@ -1165,25 +1148,16 @@
         "kind": 6,
         "importPath": "app.main.forms",
         "description": "app.main.forms",
-        "peekOfCode": "class PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])",
+        "peekOfCode": "class PostForm(FlaskForm):\n    post=TextAreaField(_l('Say Something'),validators=[DataRequired(),Length(min=1,max=140)])\n    submit=SubmitField(_l('Submit'))\nclass SearchForm(FlaskForm):\n    q=StringField(_l(\"Search\"),validators=[DataRequired()])\n    def __init__(self, *args, **kwargs):\n        if 'formdata' not in kwargs:\n            kwargs['formdata']=request.args\n        if 'csrf_enabled' not in kwargs:\n            kwargs['meta']={'csrf':False}",
         "detail": "app.main.forms",
         "documentation": {}
     },
     {
-        "label": "ResetPasswordRequestForm",
+        "label": "SearchForm",
         "kind": 6,
         "importPath": "app.main.forms",
         "description": "app.main.forms",
-        "peekOfCode": "class ResetPasswordRequestForm(FlaskForm):\n    email=StringField(_l('Email'),validators=[DataRequired(),Email()])\n    submit=SubmitField(_l('Request Password Reset'))\nclass ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
-        "detail": "app.main.forms",
-        "documentation": {}
-    },
-    {
-        "label": "ResetPasswordForm",
-        "kind": 6,
-        "importPath": "app.main.forms",
-        "description": "app.main.forms",
-        "peekOfCode": "class ResetPasswordForm(FlaskForm):\n    password = PasswordField(_l('Password'), validators=[DataRequired()])\n    password2 = PasswordField(\n        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])\n    submit = SubmitField(_l('Request Password Reset'))",
+        "peekOfCode": "class SearchForm(FlaskForm):\n    q=StringField(_l(\"Search\"),validators=[DataRequired()])\n    def __init__(self, *args, **kwargs):\n        if 'formdata' not in kwargs:\n            kwargs['formdata']=request.args\n        if 'csrf_enabled' not in kwargs:\n            kwargs['meta']={'csrf':False}\n        super(SearchForm,self).__init__(*args,**kwargs)",
         "detail": "app.main.forms",
         "documentation": {}
     },
@@ -1192,7 +1166,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n    g.locale = str(get_locale())\n@bp.route(\"/\", methods=[\"GET\", \"POST\"])\n@bp.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():\n    form = PostForm()",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n        g.search_form = SearchForm()\n    g.locale = str(get_locale())\n@bp.route(\"/\", methods=[\"GET\", \"POST\"])\n@bp.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1260,12 +1234,30 @@
         "documentation": {}
     },
     {
+        "label": "search",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def search():\n    if not g.search_form.validate():\n        return redirect(url_for(\"main.explore\"))\n    page = request.args.get(\"page\", 1, type=int)\n    posts, total = Post.search(\n        g.search_form.q.data, page, current_app.config[\"POSTS_PER_PAGE\"]\n    )\n    # print(\"bdjscbjkdsbjkbksjbc\",total,page,posts)\n    next_url = (\n        url_for(\"main.search\", q=g.search_form.q.data, page=page - 1)   \\",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
         "label": "register",
         "kind": 2,
         "importPath": "app.cli",
         "description": "app.cli",
         "peekOfCode": "def register(app):\n    @app.cli.group()\n    def translate():\n        '''Translation and localization commands'''\n        pass\n    @translate.command()\n    @click.argument('lang')\n    def init(lang):\n        '''Initialize a new language'''\n        if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):",
         "detail": "app.cli",
+        "documentation": {}
+    },
+    {
+        "label": "SearchableMixin",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class SearchableMixin(object):\n    @classmethod\n    def search(cls,expression,page,per_page):\n        # print(\"search method called\")\n        ids,total=query_index(cls.__tablename__,expression,page,per_page)\n        # print(\"search result \",ids,total,range(len(ids)))\n        if total==0:\n            return cls.query.filter_by(id=0),0\n        when=[]\n        for i in range(len(ids)):",
+        "detail": "app.models",
         "documentation": {}
     },
     {
@@ -1282,7 +1274,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
+        "peekOfCode": "class Post(SearchableMixin,db.Model):\n    __searchable__=['body','author.username']\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session,'before_commit', Post.before_commit)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1291,7 +1283,7 @@
         "kind": 2,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(SearchableMixin,db.Model):\n    __searchable__=['body','author.username']\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1300,8 +1292,35 @@
         "kind": 5,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(128))",
+        "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass SearchableMixin(object):\n    @classmethod\n    def search(cls,expression,page,per_page):\n        # print(\"search method called\")\n        ids,total=query_index(cls.__tablename__,expression,page,per_page)",
         "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "add_to_index",
+        "kind": 2,
+        "importPath": "app.search",
+        "description": "app.search",
+        "peekOfCode": "def add_to_index(index,model):\n    if not current_app.elasticsearch:\n        return \n    payload={}\n    for field in model.__searchable__:\n        payload[field]=reduce(getattr,field.split('.'),model)\n    # print(\"payload is: \",payload)\n    current_app.elasticsearch.index(index=index,id=model.id,body=payload)\ndef remove_from_index(index,model):\n    if not current_app.elasticsearch:",
+        "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "remove_from_index",
+        "kind": 2,
+        "importPath": "app.search",
+        "description": "app.search",
+        "peekOfCode": "def remove_from_index(index,model):\n    if not current_app.elasticsearch:\n        return \n    current_app.elasticsearch.delete(index=index, id=model.id)\ndef query_index(index,query,page,per_page):\n    if not current_app.elasticsearch:\n        return [],0 \n    search=current_app.elasticsearch.search(\n        index=index,\n        body={'query':{'multi_match':{'query':query,'fields':['*']}},",
+        "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "query_index",
+        "kind": 2,
+        "importPath": "app.search",
+        "description": "app.search",
+        "peekOfCode": "def query_index(index,query,page,per_page):\n    if not current_app.elasticsearch:\n        return [],0 \n    search=current_app.elasticsearch.search(\n        index=index,\n        body={'query':{'multi_match':{'query':query,'fields':['*']}},\n              'from':(page-1)*per_page,'size':per_page})\n    ids=[int(hit['_id']) for hit in search['hits']['hits']]\n    return ids, search['hits']['total']",
+        "detail": "app.search",
         "documentation": {}
     },
     {
