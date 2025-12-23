@@ -1,5 +1,14 @@
 [
     {
+        "label": "flask_mail",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
         "label": "Message",
         "importPath": "flask_mail",
         "description": "flask_mail",
@@ -480,6 +489,14 @@
         "documentation": {}
     },
     {
+        "label": "Message",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "app.models",
         "description": "app.models",
@@ -744,6 +761,14 @@
         "documentation": {}
     },
     {
+        "label": "MessageForm",
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "isExtraImport": true,
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
         "label": "detect",
         "importPath": "langdetect",
         "description": "langdetect",
@@ -864,6 +889,14 @@
         "description": "googletrans",
         "isExtraImport": true,
         "detail": "googletrans",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -1165,7 +1198,16 @@
         "kind": 6,
         "importPath": "app.main.forms",
         "description": "app.main.forms",
-        "peekOfCode": "class SearchForm(FlaskForm):\n    q=StringField(_l(\"Search\"),validators=[DataRequired()])\n    def __init__(self, *args, **kwargs):\n        if 'formdata' not in kwargs:\n            kwargs['formdata']=request.args\n        if 'csrf_enabled' not in kwargs:\n            kwargs['meta']={'csrf':False}\n        super(SearchForm,self).__init__(*args,**kwargs)",
+        "peekOfCode": "class SearchForm(FlaskForm):\n    q=StringField(_l(\"Search\"),validators=[DataRequired()])\n    def __init__(self, *args, **kwargs):\n        if 'formdata' not in kwargs:\n            kwargs['formdata']=request.args\n        if 'csrf_enabled' not in kwargs:\n            kwargs['meta']={'csrf':False}\n        super(SearchForm,self).__init__(*args,**kwargs)\nclass MessageForm(FlaskForm):\n    message=TextAreaField(_l('Message'),validators=[DataRequired(),Length(min=0,max=140)])",
+        "detail": "app.main.forms",
+        "documentation": {}
+    },
+    {
+        "label": "MessageForm",
+        "kind": 6,
+        "importPath": "app.main.forms",
+        "description": "app.main.forms",
+        "peekOfCode": "class MessageForm(FlaskForm):\n    message=TextAreaField(_l('Message'),validators=[DataRequired(),Length(min=0,max=140)])\n    submit=SubmitField(_l('Submit'))",
         "detail": "app.main.forms",
         "documentation": {}
     },
@@ -1237,7 +1279,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def user_popup(username):\n    user=User.query.filter_by(username=username).first_or_404()\n    form = EmptyForm()\n    return render_template('user_popup.html',user=user,form=form)\n@bp.route(\"/translate\", methods=[\"POST\"])\n@login_required\ndef translate_text():\n    return jsonify(\n        {\n            \"text\": translate(",
+        "peekOfCode": "def user_popup(username):\n    user = User.query.filter_by(username=username).first_or_404()\n    form = EmptyForm()\n    return render_template(\"user_popup.html\", user=user, form=form)\n@bp.route(\"/translate\", methods=[\"POST\"])\n@login_required\ndef translate_text():\n    return jsonify(\n        {\n            \"text\": translate(",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1255,7 +1297,25 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def search():\n    if not g.search_form.validate():\n        return redirect(url_for(\"main.explore\"))\n    page = request.args.get(\"page\", 1, type=int)\n    posts, total = Post.search(\n        g.search_form.q.data, page, current_app.config[\"POSTS_PER_PAGE\"]\n    )\n    # print(\"bdjscbjkdsbjkbksjbc\",total,page,posts)\n    next_url = (\n        url_for(\"main.search\", q=g.search_form.q.data, page=page - 1)   \\",
+        "peekOfCode": "def search():\n    if not g.search_form.validate():\n        return redirect(url_for(\"main.explore\"))\n    page = request.args.get(\"page\", 1, type=int)\n    posts, total = Post.search(\n        g.search_form.q.data, page, current_app.config[\"POSTS_PER_PAGE\"]\n    )\n    # print(\"bdjscbjkdsbjkbksjbc\",total,page,posts)\n    next_url = (\n        url_for(\"main.search\", q=g.search_form.q.data, page=page - 1)",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "send_messages",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        db.session.commit()\n        flash(_(\"Your message has been sent.\"))\n        return redirect(url_for(\"main.user\", username=recipient))",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def messages():\n    current_user.last_message_read_time = datetime.utcnow()\n    db.session.commit()\n    page = request.args.get('page', 1, type=int)\n    messages = Message.query.filter(\n        (\n            (Message.sender_id == current_user.id) |\n            (Message.recipient_id == current_user.id)\n        )\n    ).order_by(",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1273,7 +1333,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class SearchableMixin(object):\n    @classmethod\n    def search(cls,expression,page,per_page):\n        # print(\"search method called\")\n        ids,total=query_index(cls.__tablename__,expression,page,per_page)\n        # print(\"search result \",ids,total,range(len(ids)))\n        if total==0:\n            return cls.query.filter_by(id=0),0\n        when=[]\n        for i in range(len(ids)):",
+        "peekOfCode": "class SearchableMixin(object):\n    @classmethod\n    def search(cls, expression, page, per_page):\n        # print(\"search method called\")\n        ids, total = query_index(cls.__tablename__, expression, page, per_page)\n        # print(\"search result \",ids,total,range(len(ids)))\n        if total == 0:\n            return cls.query.filter_by(id=0), 0\n        when = []\n        for i in range(len(ids)):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1287,11 +1347,20 @@
         "documentation": {}
     },
     {
+        "label": "Message",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)\nclass Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "Post",
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(SearchableMixin,db.Model):\n    __searchable__=['body','author.username']\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session,'before_commit', Post.before_commit)",
+        "peekOfCode": "class Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language = db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session, \"before_commit\", Post.before_commit)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1300,7 +1369,7 @@
         "kind": 2,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Post(SearchableMixin,db.Model):\n    __searchable__=['body','author.username']\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language=db.Column(db.String(5))\n    def __repr__(self):",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1309,7 +1378,7 @@
         "kind": 5,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass SearchableMixin(object):\n    @classmethod\n    def search(cls,expression,page,per_page):\n        # print(\"search method called\")\n        ids,total=query_index(cls.__tablename__,expression,page,per_page)",
+        "peekOfCode": "followers = db.Table(\n    \"followers\",\n    db.Column(\"follower_id\", db.Integer, db.ForeignKey(\"user.id\")),\n    db.Column(\"followed_id\", db.Integer, db.ForeignKey(\"user.id\")),\n)\nclass SearchableMixin(object):\n    @classmethod\n    def search(cls, expression, page, per_page):\n        # print(\"search method called\")\n        ids, total = query_index(cls.__tablename__, expression, page, per_page)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1509,6 +1578,60 @@
         "description": "migrations.versions.63b6500cd8e6_users_table",
         "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )",
         "detail": "migrations.versions.63b6500cd8e6_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.ForeignKeyConstraint(['recipient_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['sender_id'], ['user.id'], ),",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_message_read_time')\n    with op.batch_alter_table('message', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_message_timestamp'))\n    op.drop_table('message')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "revision = '6bea68f8b032'\ndown_revision = '577b57441dec'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "down_revision = '577b57441dec'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.6bea68f8b032_private_messages",
+        "description": "migrations.versions.6bea68f8b032_private_messages",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.ForeignKeyConstraint(['recipient_id'], ['user.id'], ),",
+        "detail": "migrations.versions.6bea68f8b032_private_messages",
         "documentation": {}
     },
     {

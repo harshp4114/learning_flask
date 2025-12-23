@@ -26,6 +26,14 @@
                 </form>
                 </p>
                     {% endif %}
+                {% if user != current_user %}
+                <p>
+                    <u><a class="nav-link" aria-current="page" href="{{ url_for('main.send_messages',
+                                        recipient=user.username) }}">
+                        {{ _('Send private message') }}
+                    </a></u>
+                </p>
+                {% endif %}
                 
             </td> 
         </tr>

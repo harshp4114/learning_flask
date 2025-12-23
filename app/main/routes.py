@@ -17,6 +17,8 @@ from flask_babel import _, get_locale
 from langdetect import detect
 from app.translate import translate
 from app.main import bp
+from app.main.forms import MessageForm
+from app.models import Message
 
 
 @bp.before_request
@@ -169,9 +171,10 @@ def explore():
 @bp.route("/user/<username>/popup")
 @login_required
 def user_popup(username):
-    user=User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first_or_404()
     form = EmptyForm()
-    return render_template('user_popup.html',user=user,form=form)
+    return render_template("user_popup.html", user=user, form=form)
+
 
 @bp.route("/translate", methods=["POST"])
 @login_required
@@ -198,14 +201,62 @@ def search():
     )
     # print("bdjscbjkdsbjkbksjbc",total,page,posts)
     next_url = (
-        url_for("main.search", q=g.search_form.q.data, page=page - 1)   \
-        if total['value'] > (page * current_app.config["POSTS_PER_PAGE"])
+        url_for("main.search", q=g.search_form.q.data, page=page - 1)
+        if total["value"] > (page * current_app.config["POSTS_PER_PAGE"])
         else None
     )
     prev_url = (
-        url_for("main.search", q=g.search_form.q.data, page=page - 1)   \
+        url_for("main.search", q=g.search_form.q.data, page=page - 1)
         if page > 1
         else None
     )
     # print("before render",posts,next_url,prev_url) here posts is a sql query
-    return render_template('search.html',title=_('Search'), posts=posts,next_url=next_url,prev_url=prev_url)
+    return render_template(
+        "search.html",
+        title=_("Search"),
+        posts=posts,
+        next_url=next_url,
+        prev_url=prev_url,
+    )
+
+
+@bp.route("/send_message/<recipient>", methods=["GET", "POST"])
+@login_required
+def send_messages(recipient):
+    user = User.query.filter_by(username=recipient).first_or_404()
+    form = MessageForm()
+    print("inside send message route")
+    if form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user, body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_("Your message has been sent."))
+        return redirect(url_for("main.user", username=recipient))
+    return render_template(
+        "send_message.html", title=_("Send Message"), form=form, recipient=recipient
+    )
+
+@bp.route('/messages')
+@login_required
+def messages():
+    current_user.last_message_read_time = datetime.utcnow()
+    db.session.commit()
+    page = request.args.get('page', 1, type=int)
+    messages = Message.query.filter(
+        (
+            (Message.sender_id == current_user.id) |
+            (Message.recipient_id == current_user.id)
+        )
+    ).order_by(
+        Message.timestamp.desc()
+    ).paginate(
+        page=page,
+        per_page=current_app.config['POSTS_PER_PAGE'],
+        error_out=False
+    )
+    next_url = url_for('main.messages', page=messages.next_num) \
+        if messages.has_next else None
+    prev_url = url_for('main.messages', page=messages.prev_num) \
+        if messages.has_prev else None
+    return render_template('messages.html', messages=messages.items,
+                           next_url=next_url, prev_url=prev_url)

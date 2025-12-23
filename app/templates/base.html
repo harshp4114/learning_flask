@@ -37,7 +37,7 @@
                 class="nav-link"
                 aria-current="page"
                 href="{{ url_for('main.index') }}"
-                >Home</a
+                >{{ _('Home') }}</a
               >
             </li>
             <li class="nav-item">
@@ -45,7 +45,7 @@
                 class="nav-link"
                 aria-current="page"
                 href="{{ url_for('main.explore') }}"
-                >Explore</a
+                >{{ _('Explore') }}</a
               >
             </li>
           </ul>
@@ -63,7 +63,7 @@
                 class="nav-link"
                 aria-current="page"
                 href="{{ url_for('auth.login') }}"
-                >Login</a
+                >{{ _('Login') }}</a
               >
             </li>
             {% else %}
@@ -72,15 +72,20 @@
                 class="nav-link"
                 aria-current="page"
                 href="{{ url_for('main.user', username=current_user.username) }}"
-                >Profile</a
+                >{{ _('Profile') }}</a
               >
+            </li>
+            <li>
+                <a class="nav-link" aria-current="page" href="{{ url_for('main.messages') }}">
+                    {{ _('Messages') }}
+                </a>
             </li>
             <li class="nav-item">
               <a
                 class="nav-link"
                 aria-current="page"
                 href="{{ url_for('auth.logout') }}"
-                >Logout</a
+                >{{ _('Logout') }}</a
               >
             </li>
             {% endif %}

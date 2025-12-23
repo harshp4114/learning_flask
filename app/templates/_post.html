@@ -6,6 +6,11 @@
                 </a>
             </td>
             <td>
+                {% if post.author.username == current_user.username %}
+                <span class="user_popup">
+                        You
+                </span>
+                {% else %}
                 {% set user_link %}
                 <span class="user_popup">
                     <a href="{{ url_for('main.user', username=post.author.username) }}">
@@ -13,8 +18,9 @@
                     </a>
                 </span>
                 {% endset %}
+                {% endif %}
                 {{_('%(username)s said %(when)s',username=user_link,when=moment(post.timestamp).fromNow())}}
-                <br>
+                <br>    
                 <span id="post{{post.id}}">{{ post.body }}</span>
                 {% if post.language and post.language !=g.locale %}
                 <br><br>
@@ -23,5 +29,10 @@
                 </span>
                 {% endif %}
             </td>
+            {% if request.endpoint.split('.')[1] == 'messages' %}
+            <td class="align-middle">
+                <h4 class="text-muted text-end fw-normal me-4"><i>{% if post.author.username == current_user.username %} Sent to {{post.recipient.username}} {% else %} Received from {{post.author.username}} {% endif %}</i></h4>
+            </td>
+            {% endif %}
         </tr>
     </table>
