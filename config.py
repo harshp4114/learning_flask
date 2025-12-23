@@ -15,6 +15,6 @@ class Config(object):
     MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD') 
     ADMINS=['harshpatadia4114@gmail.com']
     LANGUAGES=['en','es']
-    POSTS_PER_PAGE=3
+    POSTS_PER_PAGE=6
     ELASTICSEARCH_URL=os.environ.get('ELASTICSEARCH_URL')
     

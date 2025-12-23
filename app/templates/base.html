@@ -50,9 +50,14 @@
             </li>
           </ul>
           {% if g.search_form %}
-          <form class="navbar-form navbar-left" method="get" action="{{url_for('main.search')}}">
+          <form
+            class="navbar-form navbar-left"
+            method="get"
+            action="{{url_for('main.search')}}"
+          >
             <div class="form-group">
-              {{ g.search_form.q(size=20,class='form-control', placeholder=g.search_form.q.label.text) }}
+              {{ g.search_form.q(size=20,class='form-control',
+              placeholder=g.search_form.q.label.text) }}
             </div>
           </form>
           {% endif %}
@@ -76,9 +81,20 @@
               >
             </li>
             <li>
-                <a class="nav-link" aria-current="page" href="{{ url_for('main.messages') }}">
-                    {{ _('Messages') }}
-                </a>
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="{{ url_for('main.messages') }}"
+              >
+                {{ _('Messages') }}
+                <span
+                  id="message_count"
+                  class="badge bg-secondary rounded-pill"
+                  style="display: {% if current_user.new_messages() %} inline {% else %} none {% endif %} "
+                >
+                  {{current_user.new_messages()}}
+                </span>
+              </a>
             </li>
             <li class="nav-item">
               <a
@@ -116,7 +132,7 @@
         $.post("/translate", {
           text: $(sourceElem).text(),
           source_language: sourceLang,
-          dest_language: destLang
+          dest_language: destLang,
         })
           .done(function (response) {
             $(destElem).text(response.text);
@@ -130,48 +146,73 @@
           });
       }
 
-     $(function (){
-      var timer=null;
-      var xhr=null;
-      $('.user_popup').hover(
-        function(event){
-          var elem=$(event.currentTarget);
-          timer=setTimeout(function (){
-            timer=null;
-            xhr=$.ajax('/user/'+elem.first().text().trim()+'/popup').done(
-              function(data){
-                console.log("ajax request completed--------------------------")
-                
-                console.log(data)
-                xhr=null;
-                elem.popover({
-                  placement: 'right',
-                  trigger:'manual',
-                  html:true,
-                  animation:false,
-                  container:elem,
-                  content:data,
-                  sanitize:false
-                }).popover('show');
+      $(function () {
+        var timer = null;
+        var xhr = null;
+        $(".user_popup").hover(
+          function (event) {
+            var elem = $(event.currentTarget);
+            timer = setTimeout(function () {
+              timer = null;
+              xhr = $.ajax(
+                "/user/" + elem.first().text().trim() + "/popup"
+              ).done(function (data) {
+                console.log("ajax request completed--------------------------");
+
+                console.log(data);
+                xhr = null;
+                elem
+                  .popover({
+                    placement: "right",
+                    trigger: "manual",
+                    html: true,
+                    animation: false,
+                    container: elem,
+                    content: data,
+                    sanitize: false,
+                  })
+                  .popover("show");
                 flask_moment_render_all();
-              }
-            );
-          },1000);
-        },
-        function(event){
-          var elem=$(event.currentTarget);
-          if(timer){
-            clearTimeout(timer);
-            timer=null;
-          }else if(xhr){
-            xhr.abort();
-            xhr=null;
-          }else{
-            elem.popover('dispose')
+              });
+            }, 1000);
+          },
+          function (event) {
+            var elem = $(event.currentTarget);
+            if (timer) {
+              clearTimeout(timer);
+              timer = null;
+            } else if (xhr) {
+              xhr.abort();
+              xhr = null;
+            } else {
+              elem.popover("dispose");
+            }
           }
-        }
-      )
-     }) 
+        );
+      });
+
+      function set_message_count(n) {
+        $("#message_count").text(n);
+        $("#message_count").css("display", n ? "inline-block" : "none");
+      }
+      {%if current_user.is_authenticated %}
+        $(function(){
+          var since =0
+          setInterval(function(){
+            console.log("setinterval applied");
+            $.ajax('{{url_for('main.notifications')}}?since='+since).done(
+              function(notifications){
+                for(var i=0; i<notifications.length;i++){
+                  if(notifications[i].name == 'unread_message_count')
+                    set_message_count(notifications[i].data)
+                  since=notifications[i].timestamp
+                }
+              }
+            )
+          }, 10000)
+        })
+      {% endif %}
+      
     </script>
 
     {{moment.include_moment()}} {{moment.lang(g.locale)}}

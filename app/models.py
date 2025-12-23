@@ -8,6 +8,7 @@ from time import time
 import jwt
 from flask import current_app
 from app.search import add_to_index, query_index, remove_from_index
+import json
 
 followers = db.Table(
     "followers",
@@ -87,6 +88,7 @@ class User(db.Model, UserMixin):
         lazy="dynamic",
     )
     last_message_read_time = db.Column(db.DateTime)
+    notifications=db.relationship('Notification',backref='user',lazy='dynamic')
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
@@ -145,6 +147,22 @@ class User(db.Model, UserMixin):
             .filter(Message.timestamp > last_read_time)
             .count()
         )
+    
+    def add_notifications(self,name,data):
+        self.notifications.filter_by(name=name).delete()
+        n=Notification(name=name,payload_json=json.dumps(data),user=self)
+        db.session.add(n)
+        return n
+
+class Notification(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.String(128),index=True)
+    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
+    timestamp=db.Column(db.Float,index=True,default=time)
+    payload_json=db.Column(db.Text)
+
+    def get_data(self):
+        return json.loads(self.payload_json)
 
 
 @login.user_loader

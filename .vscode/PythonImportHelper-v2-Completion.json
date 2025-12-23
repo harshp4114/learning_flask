@@ -73,14 +73,6 @@
         "documentation": {}
     },
     {
-        "label": "cli",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
         "label": "create_app",
         "importPath": "app",
         "description": "app",
@@ -473,6 +465,14 @@
         "documentation": {}
     },
     {
+        "label": "Notification",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "Post",
         "importPath": "app.models",
         "description": "app.models",
@@ -497,7 +497,15 @@
         "documentation": {}
     },
     {
-        "label": "User",
+        "label": "Message",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Notification",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -506,6 +514,14 @@
     },
     {
         "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -876,6 +892,15 @@
         "documentation": {}
     },
     {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
         "label": "reduce",
         "importPath": "functools",
         "description": "functools",
@@ -889,6 +914,22 @@
         "description": "googletrans",
         "isExtraImport": true,
         "detail": "googletrans",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -1306,7 +1347,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        db.session.commit()\n        flash(_(\"Your message has been sent.\"))\n        return redirect(url_for(\"main.user\", username=recipient))",
+        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        print(\"new msgggg\",user.new_messages())\n        db.session.commit()\n        user.add_notifications('unread_message_count',user.new_messages())",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1315,7 +1356,16 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def messages():\n    current_user.last_message_read_time = datetime.utcnow()\n    db.session.commit()\n    page = request.args.get('page', 1, type=int)\n    messages = Message.query.filter(\n        (\n            (Message.sender_id == current_user.id) |\n            (Message.recipient_id == current_user.id)\n        )\n    ).order_by(",
+        "peekOfCode": "def messages():\n    current_user.last_message_read_time = datetime.utcnow()\n    current_user.add_notifications('unread_message_count',0)\n    db.session.commit()\n    page = request.args.get('page', 1, type=int)\n    messages = Message.query.filter(\n        (\n            (Message.sender_id == current_user.id) |\n            (Message.recipient_id == current_user.id)\n        )",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "notifications",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def notifications():\n    since= request.args.get('since',0.0,type=float)\n    notifications=current_user.notifications.filter(Notification.timestamp>since).order_by(Notification.timestamp.asc())\n    return jsonify([{\n        'name':n.name,\n        'data':n.get_data(),\n        'timestamp':n.timestamp\n    } for n in notifications])",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1343,6 +1393,15 @@
         "importPath": "app.models",
         "description": "app.models",
         "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(512))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.utcnow)\n    followed = db.relationship(\n        \"User\",",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Notification",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Notification(db.Model):\n    id=db.Column(db.Integer,primary_key=True)\n    name=db.Column(db.String(128),index=True)\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    timestamp=db.Column(db.Float,index=True,default=time)\n    payload_json=db.Column(db.Text)\n    def get_data(self):\n        return json.loads(self.payload_json)\n@login.user_loader\ndef load_user(id):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1799,6 +1858,60 @@
     {
         "label": "upgrade",
         "kind": 2,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('notifications', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_notifications_timestamp'))\n        batch_op.drop_index(batch_op.f('ix_notifications_name'))\n    op.drop_table('notifications')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "revision = 'b1b20a27d09d'\ndown_revision = '6bea68f8b032'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "down_revision = '6bea68f8b032'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
+        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
         "importPath": "migrations.versions.b4bc7bacb571_posts_table",
         "description": "migrations.versions.b4bc7bacb571_posts_table",
         "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')\n    )",
@@ -1905,6 +2018,60 @@
         "documentation": {}
     },
     {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.INTEGER(), nullable=False),\n    sa.Column('name', sa.VARCHAR(length=128), nullable=True),\n    sa.Column('user_id', sa.INTEGER(), nullable=True),\n    sa.Column('timestamp', sa.FLOAT(), nullable=True),\n    sa.Column('payload_json', sa.TEXT(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "revision = 'c06d44b20fbe'\ndown_revision = 'b1b20a27d09d'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "down_revision = 'b1b20a27d09d'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
+        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
+        "documentation": {}
+    },
+    {
         "label": "get_engine",
         "kind": 2,
         "importPath": "migrations.env",
@@ -1990,7 +2157,7 @@
         "kind": 2,
         "importPath": "microblog",
         "description": "microblog",
-        "peekOfCode": "def make_shell_context():\n    return {'db':db,'User':User,'Post':Post}",
+        "peekOfCode": "def make_shell_context():\n    return {'db':db,'User':User,'Post':Post,'Message':Message,'Notifications':Notification}",
         "detail": "microblog",
         "documentation": {}
     },
