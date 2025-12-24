@@ -65,6 +65,22 @@
         "documentation": {}
     },
     {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "db",
         "importPath": "app",
         "description": "app",
@@ -242,6 +258,14 @@
     },
     {
         "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -497,6 +521,30 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "Message",
         "importPath": "app.models",
         "description": "app.models",
@@ -514,6 +562,14 @@
     },
     {
         "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -697,6 +753,14 @@
         "documentation": {}
     },
     {
+        "label": "send_email",
+        "importPath": "app.auth.email2",
+        "description": "app.auth.email2",
+        "isExtraImport": true,
+        "detail": "app.auth.email2",
+        "documentation": {}
+    },
+    {
         "label": "bp",
         "importPath": "app.auth",
         "description": "app.auth",
@@ -852,6 +916,15 @@
     },
     {
         "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "time",
         "importPath": "time",
         "description": "time",
         "isExtraImport": true,
@@ -901,6 +974,32 @@
         "documentation": {}
     },
     {
+        "label": "redis",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "redis",
+        "description": "redis",
+        "detail": "redis",
+        "documentation": {}
+    },
+    {
+        "label": "rq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rq",
+        "description": "rq",
+        "detail": "rq",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_job",
+        "importPath": "rq",
+        "description": "rq",
+        "isExtraImport": true,
+        "detail": "rq",
+        "documentation": {}
+    },
+    {
         "label": "reduce",
         "importPath": "functools",
         "description": "functools",
@@ -909,11 +1008,28 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
         "label": "Translator",
         "importPath": "googletrans",
         "description": "googletrans",
         "isExtraImport": true,
         "detail": "googletrans",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -1068,7 +1184,7 @@
         "kind": 2,
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
-        "peekOfCode": "def send_async_email(app,msg):\n    with current_app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(current_app.get_current_object(),msg)).start()\ndef send_password_reset_email(user):",
+        "peekOfCode": "def send_async_email(app,msg):\n    with current_app.app_context():\n        mail.send(msg)\ndef send_email(subject, sender, recipients, text_body, html_body,attachments=None,sync=False):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    if attachments:\n        for attachment in attachments:\n            msg.attach(*attachment)",
         "detail": "app.auth.email2",
         "documentation": {}
     },
@@ -1077,7 +1193,7 @@
         "kind": 2,
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
-        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    # mail.send(msg) sync method\n    Thread(target=send_async_email,args=(current_app.get_current_object(),msg)).start()\ndef send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(",
+        "peekOfCode": "def send_email(subject, sender, recipients, text_body, html_body,attachments=None,sync=False):\n    msg = Message(subject, sender=sender, recipients=recipients)\n    msg.body = text_body\n    msg.html = html_body\n    if attachments:\n        for attachment in attachments:\n            msg.attach(*attachment)\n    if sync:\n        mail.send(msg) # synchronous method\n        pass",
         "detail": "app.auth.email2",
         "documentation": {}
     },
@@ -1086,7 +1202,7 @@
         "kind": 2,
         "importPath": "app.auth.email2",
         "description": "app.auth.email2",
-        "peekOfCode": "def send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    print(\"TOKEN : \",token)\n    send_email(\n        \"[Microblog] Reset Your Password\",\n        sender=current_app.config[\"ADMINS\"][0],\n        recipients=[user.email],\n        text_body=render_template(\"email/reset_password.txt\", user=user, token=token),\n        html_body=render_template(\"email/reset_password.html\", user=user, token=token),\n    )",
+        "peekOfCode": "def send_password_reset_email(user):\n    token = user.get_reset_password_token()\n    # print(\"TOKEN : \",token)\n    send_email(\n        \"[Microblog] Reset Your Password\",\n        sender=current_app.config[\"ADMINS\"][0],\n        recipients=[user.email],\n        text_body=render_template(\"email/reset_password.txt\", user=user, token=token),\n        html_body=render_template(\"email/reset_password.html\", user=user, token=token),\n    )",
         "detail": "app.auth.email2",
         "documentation": {}
     },
@@ -1347,7 +1463,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        # print(\"new msgggg\",user.new_messages())\n        db.session.commit()\n        user.add_notifications('unread_message_count',user.new_messages())",
+        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    # print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        # print(\"new msgggg\",user.new_messages())\n        db.session.commit()\n        user.add_notifications('unread_message_count',user.new_messages())",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1365,7 +1481,16 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def notifications():\n    since= request.args.get('since',0.0,type=float)\n    notifications=current_user.notifications.filter(Notification.timestamp>since).order_by(Notification.timestamp.asc())\n    return jsonify([{\n        'name':n.name,\n        'data':n.get_data(),\n        'timestamp':n.timestamp\n    } for n in notifications])",
+        "peekOfCode": "def notifications():\n    since= request.args.get('since',0.0,type=float)\n    notifications=current_user.notifications.filter(Notification.timestamp>since).order_by(Notification.timestamp.asc())\n    return jsonify([{\n        'name':n.name,\n        'data':n.get_data(),\n        'timestamp':n.timestamp\n    } for n in notifications])\n@bp.route('/export_routes')\n@login_required",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "export_posts",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def export_posts():\n    if current_user.get_task_in_progress('export_posts'):\n        flash(_('An export task is currently in progress'))\n    else:\n        current_user.launch_task('export_posts',_('Exporting posts...'))\n        db.session.commit()\n    return redirect(url_for('main.user',username=current_user.username))",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1419,7 +1544,16 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language = db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session, \"before_commit\", Post.before_commit)",
+        "peekOfCode": "class Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language = db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\nclass Task(db.Model):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Task(db.Model):\n    id=db.Column(db.String(64),primary_key=True)\n    name=db.Column(db.String(128),index=True)\n    description=db.Column(db.String(128))\n    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))\n    complete=db.Column(db.Boolean,default=False)\n    def get_rq_job(self):\n        try:\n            rq_job=rq.job.Job.fetch(self.id,connection=current_app.redis)\n        except(redis.exceptions.RedisError,rq.exceptions.NoSuchJobError):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1466,6 +1600,24 @@
         "description": "app.search",
         "peekOfCode": "def query_index(index,query,page,per_page):\n    if not current_app.elasticsearch:\n        return [],0 \n    search=current_app.elasticsearch.search(\n        index=index,\n        body={'query':{'multi_match':{'query':query,'fields':['*']}},\n              'from':(page-1)*per_page,'size':per_page})\n    ids=[int(hit['_id']) for hit in search['hits']['hits']]\n    return ids, search['hits']['total']",
         "detail": "app.search",
+        "documentation": {}
+    },
+    {
+        "label": "export_posts",
+        "kind": 2,
+        "importPath": "app.tasks",
+        "description": "app.tasks",
+        "peekOfCode": "def export_posts(user_id):\n    try:\n        user = User.query.get(user_id)\n        _set_task_progress(0)\n        data = []\n        i = 0\n        total_posts = user.posts.count()\n        for post in user.posts.order_by(Post.timestamp.asc()):\n            data.append(\n                {\"body\": post.body, \"timestamp\": post.timestamp.isoformat() + \"Z\"}",
+        "detail": "app.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.tasks",
+        "description": "app.tasks",
+        "peekOfCode": "app = create_app()\napp.app_context().push()\ndef _set_task_progress(progress):\n    job = get_current_job()\n    if job:\n        job.meta[\"progress\"] = progress\n        job.save_meta()\n        task = Task.query.get(job.get_id())\n        task.user.add_notifications(\n            \"task_progress\", {\"task_id\": job.get_id(), \"progress\": progress}",
+        "detail": "app.tasks",
         "documentation": {}
     },
     {
@@ -2072,6 +2224,60 @@
         "documentation": {}
     },
     {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('task', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_task_name'))\n    op.drop_table('task')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "revision = 'ead9272b776b'\ndown_revision = 'c06d44b20fbe'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "down_revision = 'c06d44b20fbe'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.ead9272b776b_added_task_model",
+        "description": "migrations.versions.ead9272b776b_added_task_model",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
+        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "documentation": {}
+    },
+    {
         "label": "get_engine",
         "kind": 2,
         "importPath": "migrations.env",
@@ -2157,7 +2363,16 @@
         "kind": 2,
         "importPath": "microblog",
         "description": "microblog",
-        "peekOfCode": "def make_shell_context():\n    return {'db':db,'User':User,'Post':Post,'Message':Message,'Notifications':Notification}",
+        "peekOfCode": "def make_shell_context():\n    return {\n        \"db\": db,\n        \"User\": User,\n        \"Post\": Post,\n        \"Message\": Message,\n        \"Notifications\": Notification,\n        \"Task\": Task,\n    }",
+        "detail": "microblog",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "microblog",
+        "description": "microblog",
+        "peekOfCode": "app = create_app()\n@app.shell_context_processor\ndef make_shell_context():\n    return {\n        \"db\": db,\n        \"User\": User,\n        \"Post\": Post,\n        \"Message\": Message,\n        \"Notifications\": Notification,\n        \"Task\": Task,",
         "detail": "microblog",
         "documentation": {}
     },

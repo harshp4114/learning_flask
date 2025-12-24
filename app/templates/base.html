@@ -110,8 +110,28 @@
       </div>
     </nav>
     <div class="container mt-3">
-      {% with messages = get_flashed_messages() %} {% if messages %} {% for
-      message in messages %}
+      {% if current_user.is_authenticated %} {% with tasks =
+      current_user.get_tasks_in_progress() %} {% if tasks %} {% for task in
+      tasks %}
+      <div class="alert alert-success" role="alert">
+        {{task.description}}
+        <span id="{{task.id}}-progress">{{task.get_progress()}}</span>%
+        <div class="progress mt-3">
+          <div
+            id='pgbar'
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 0%"
+            aria-current="{{task.get_progress()}} "
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            0% Complete
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endif %} {% endwith %} {% endif %} {% with messages =
+      get_flashed_messages() %} {% if messages %} {% for message in messages %}
       <div class="alert alert-info" role="alert">{{ message }}</div>
       {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
     </div>
@@ -123,7 +143,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
       function translate_client(sourceElem, destElem, sourceLang, destLang) {
-        // console.log("Translate clicked");
 
         const originalHtml = $(destElem).html();
 
@@ -194,6 +213,13 @@
         $("#message_count").text(n);
         $("#message_count").css("display", n ? "inline-block" : "none");
       }
+
+      function set_task_progress(task_id,progress){
+        $('#'+task_id+'-progress').text(progress)
+        $('#pgbar').css("width",(progress+'%'))
+        $('#pgbar').text(progress+'% Complete')
+      }
+
       {%if current_user.is_authenticated %}
         $(function(){
           var since =0
@@ -201,8 +227,14 @@
             $.ajax('{{url_for('main.notifications')}}?since='+since).done(
               function(notifications){
                 for(var i=0; i<notifications.length;i++){
-                  if(notifications[i].name == 'unread_message_count')
-                    set_message_count(notifications[i].data)
+                  switch(notifications[i].name){
+                    case 'unread_message_count':
+                      set_message_count(notifications[i].data)
+                      break;
+                    case 'task_progress':
+                      set_task_progress(notifications[i].data.task_id,notifications[i].data.progress)
+                      break;
+                  }
                   since=notifications[i].timestamp
                 }
               }
@@ -210,7 +242,6 @@
           }, 1000)
         })
       {% endif %}
-      
     </script>
 
     {{moment.include_moment()}} {{moment.lang(g.locale)}}

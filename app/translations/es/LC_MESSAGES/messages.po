@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-23 11:44+0530\n"
+"POT-Creation-Date: 2025-12-24 17:15+0530\n"
 "PO-Revision-Date: 2025-12-16 11:50+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -130,29 +130,57 @@ msgstr "¡No puedes dejar de seguirte a ti mismo!"
 msgid "You are not following %(username)s."
 msgstr "No estás siguiendo a %(username)s."
 
-#: app/main/routes.py:232
+#: app/main/routes.py:237
 #, fuzzy
 msgid "Your message has been sent."
 msgstr "Tu contraseña ha sido restablecida."
 
-#: app/main/routes.py:235
+#: app/main/routes.py:240
 msgid "Send Message"
 msgstr ""
 
-#: app/templates/_post.html:16
+#: app/main/routes.py:284
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: app/main/routes.py:286
+msgid "Exporting posts..."
+msgstr ""
+
+#: app/templates/_post.html:22
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s dijo %(when)s"
 
-#: app/templates/_post.html:22
+#: app/templates/_post.html:28
 msgid "See translation"
 msgstr ""
 
-#: app/templates/base.html:80 app/templates/messages.html:4
+#: app/templates/base.html:40
+msgid "Home"
+msgstr ""
+
+#: app/templates/base.html:48
+msgid "Explore"
+msgstr ""
+
+#: app/templates/base.html:71
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:80
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:89 app/templates/messages.html:4
 msgid "Messages"
 msgstr ""
 
-#: app/templates/base.html:125
+#: app/templates/base.html:104
+msgid "Logout"
+msgstr ""
+
+#: app/templates/base.html:148
 msgid "Error: Could not contact server."
 msgstr ""
 
@@ -196,7 +224,15 @@ msgstr ""
 msgid "Send Message to %(recipient)s"
 msgstr ""
 
-#: app/templates/user.html:33
+#: app/templates/user.html:13
+msgid "Edit your profile"
+msgstr ""
+
+#: app/templates/user.html:15
+msgid "Export your posts"
+msgstr ""
+
+#: app/templates/user.html:36
 msgid "Send private message"
 msgstr ""
 
