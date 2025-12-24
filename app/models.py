@@ -69,7 +69,7 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(512))
     posts = db.relationship("Post", backref="author", lazy="dynamic")
     about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    last_seen = db.Column(db.DateTime, default=datetime.now)
     followed = db.relationship(
         "User",
         secondary=followers,
@@ -141,6 +141,7 @@ class User(db.Model, UserMixin):
         return followed.union(self.posts).order_by(Post.timestamp.desc())
 
     def new_messages(self):
+        print("bjhbcdjkbjksbnjkbnjkandj bjbsdjhabhjdasjhbdaswjhgbjhswgbjh")
         last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
         return (
             Message.query.filter_by(recipient=self)
@@ -175,7 +176,7 @@ class Message(db.Model):
     sender_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     recipient_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
 
     def __repr__(self):
         return "<Message {}>".format(self.body)
@@ -185,7 +186,7 @@ class Post(SearchableMixin, db.Model):
     __searchable__ = ["body", "author.username"]
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     language = db.Column(db.String(5))
 

@@ -157,7 +157,6 @@
               xhr = $.ajax(
                 "/user/" + elem.first().text().trim() + "/popup"
               ).done(function (data) {
-                console.log("ajax request completed--------------------------");
 
                 console.log(data);
                 xhr = null;
@@ -199,7 +198,6 @@
         $(function(){
           var since =0
           setInterval(function(){
-            console.log("setinterval applied");
             $.ajax('{{url_for('main.notifications')}}?since='+since).done(
               function(notifications){
                 for(var i=0; i<notifications.length;i++){
@@ -209,7 +207,7 @@
                 }
               }
             )
-          }, 10000)
+          }, 1000)
         })
       {% endif %}
       

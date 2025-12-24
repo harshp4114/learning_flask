@@ -24,7 +24,7 @@ from app.models import Message
 @bp.before_request
 def before_request():
     if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
+        current_user.last_seen = datetime.now()
         db.session.commit()
         g.search_form = SearchForm()
     g.locale = str(get_locale())
@@ -229,11 +229,11 @@ def send_messages(recipient):
     if form.validate_on_submit():
         msg = Message(author=current_user, recipient=user, body=form.message.data)
         db.session.add(msg)
-        print("new msgggg",user.new_messages())
+        # print("new msgggg",user.new_messages())
         db.session.commit()
         user.add_notifications('unread_message_count',user.new_messages())
         db.session.commit()
-        print("afetr new msgggg",user.new_messages())
+        # print("afetr new msgggg",user.new_messages())
         flash(_("Your message has been sent."))
         return redirect(url_for("main.user", username=recipient))
     return render_template(
@@ -243,7 +243,7 @@ def send_messages(recipient):
 @bp.route('/messages')
 @login_required
 def messages():
-    current_user.last_message_read_time = datetime.utcnow()
+    current_user.last_message_read_time = datetime.now()
     current_user.add_notifications('unread_message_count',0)
     db.session.commit()
     page = request.args.get('page', 1, type=int)

@@ -1257,7 +1257,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.utcnow()\n        db.session.commit()\n        g.search_form = SearchForm()\n    g.locale = str(get_locale())\n@bp.route(\"/\", methods=[\"GET\", \"POST\"])\n@bp.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():",
+        "peekOfCode": "def before_request():\n    if current_user.is_authenticated:\n        current_user.last_seen = datetime.now()\n        db.session.commit()\n        g.search_form = SearchForm()\n    g.locale = str(get_locale())\n@bp.route(\"/\", methods=[\"GET\", \"POST\"])\n@bp.route(\"/index\", methods=[\"GET\", \"POST\"])\n@login_required\ndef index():",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1347,7 +1347,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        print(\"new msgggg\",user.new_messages())\n        db.session.commit()\n        user.add_notifications('unread_message_count',user.new_messages())",
+        "peekOfCode": "def send_messages(recipient):\n    user = User.query.filter_by(username=recipient).first_or_404()\n    form = MessageForm()\n    print(\"inside send message route\")\n    if form.validate_on_submit():\n        msg = Message(author=current_user, recipient=user, body=form.message.data)\n        db.session.add(msg)\n        # print(\"new msgggg\",user.new_messages())\n        db.session.commit()\n        user.add_notifications('unread_message_count',user.new_messages())",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1356,7 +1356,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def messages():\n    current_user.last_message_read_time = datetime.utcnow()\n    current_user.add_notifications('unread_message_count',0)\n    db.session.commit()\n    page = request.args.get('page', 1, type=int)\n    messages = Message.query.filter(\n        (\n            (Message.sender_id == current_user.id) |\n            (Message.recipient_id == current_user.id)\n        )",
+        "peekOfCode": "def messages():\n    current_user.last_message_read_time = datetime.now()\n    current_user.add_notifications('unread_message_count',0)\n    db.session.commit()\n    page = request.args.get('page', 1, type=int)\n    messages = Message.query.filter(\n        (\n            (Message.sender_id == current_user.id) |\n            (Message.recipient_id == current_user.id)\n        )",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1392,7 +1392,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(512))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.utcnow)\n    followed = db.relationship(\n        \"User\",",
+        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(512))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.now)\n    followed = db.relationship(\n        \"User\",",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1410,7 +1410,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)\nclass Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]",
+        "peekOfCode": "class Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)\nclass Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1419,7 +1419,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language = db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session, \"before_commit\", Post.before_commit)",
+        "peekOfCode": "class Post(SearchableMixin, db.Model):\n    __searchable__ = [\"body\", \"author.username\"]\n    id = db.Column(db.Integer, primary_key=True)\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    language = db.Column(db.String(5))\n    def __repr__(self):\n        return \"<Post {}>\".format(self.body)\ndb.event.listen(db.session, \"before_commit\", Post.before_commit)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -1428,7 +1428,7 @@
         "kind": 2,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)",
+        "peekOfCode": "def load_user(id):\n    return User.query.get(int(id))\nclass Message(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    sender_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    recipient_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"))\n    body = db.Column(db.String(140))\n    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)\n    def __repr__(self):\n        return \"<Message {}>\".format(self.body)",
         "detail": "app.models",
         "documentation": {}
     },
