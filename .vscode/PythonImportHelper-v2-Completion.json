@@ -1,115 +1,218 @@
 [
     {
-        "label": "flask_mail",
-        "kind": 6,
+        "label": "HTTPBasicAuth",
+        "importPath": "flask_httpauth",
+        "description": "flask_httpauth",
         "isExtraImport": true,
-        "importPath": "flask_mail",
-        "description": "flask_mail",
-        "detail": "flask_mail",
+        "detail": "flask_httpauth",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Notification",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
         "documentation": {}
     },
     {
         "label": "Message",
-        "importPath": "flask_mail",
-        "description": "flask_mail",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "flask_mail",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "mail",
-        "importPath": "app",
-        "description": "app",
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "Task",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "Message",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "Notification",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "login",
-        "importPath": "app",
-        "description": "app",
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "create_app",
-        "importPath": "app",
-        "description": "app",
+        "label": "Task",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "User",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "create_app",
-        "importPath": "app",
-        "description": "app",
+        "label": "Post",
+        "importPath": "app.models",
+        "description": "app.models",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.models",
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "app",
-        "description": "app",
+        "label": "error_response",
+        "importPath": "app.api.errors",
+        "description": "app.api.errors",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.api.errors",
         "documentation": {}
     },
     {
-        "label": "create_app",
-        "importPath": "app",
-        "description": "app",
+        "label": "bad_request",
+        "importPath": "app.api.errors",
+        "description": "app.api.errors",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "app.api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
         "documentation": {}
     },
     {
@@ -257,6 +360,14 @@
         "documentation": {}
     },
     {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "current_app",
         "importPath": "flask",
         "description": "flask",
@@ -278,6 +389,167 @@
         "description": "flask",
         "isExtraImport": true,
         "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_STATUS_CODES",
+        "importPath": "werkzeug.http",
+        "description": "werkzeug.http",
+        "isExtraImport": true,
+        "detail": "werkzeug.http",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "mail",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.api",
+        "description": "app.api",
+        "isExtraImport": true,
+        "detail": "app.api",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.api",
+        "description": "app.api",
+        "isExtraImport": true,
+        "detail": "app.api",
+        "documentation": {}
+    },
+    {
+        "label": "basic_auth",
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "isExtraImport": true,
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "flask_mail",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
         "documentation": {}
     },
     {
@@ -462,142 +734,6 @@
         "description": "wtforms.validators",
         "isExtraImport": true,
         "detail": "wtforms.validators",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Notification",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Post",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Message",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Post",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Task",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Message",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Notification",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Post",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Task",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "Post",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
         "documentation": {}
     },
     {
@@ -786,6 +922,14 @@
     },
     {
         "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -1000,6 +1144,15 @@
         "documentation": {}
     },
     {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
         "label": "reduce",
         "importPath": "functools",
         "description": "functools",
@@ -1185,6 +1338,114 @@
         "description": "config",
         "isExtraImport": true,
         "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "kind": 2,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "def verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "basic_auth_error",
+        "kind": 2,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "def basic_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "basic_auth",
+        "kind": 5,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "basic_auth = HTTPBasicAuth()\n@basic_auth.verify_password\ndef verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "error_response",
+        "kind": 2,
+        "importPath": "app.api.errors",
+        "description": "app.api.errors",
+        "peekOfCode": "def error_response(status_code, message=None):\n    payload = {'error': HTTP_STATUS_CODES.get(status_code, 'Unknown error')}\n    if message:\n        payload['message'] = message\n    response = jsonify(payload)\n    response.status_code = status_code\n    return response\ndef bad_request(message):\n    return error_response(400, message)",
+        "detail": "app.api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "bad_request",
+        "kind": 2,
+        "importPath": "app.api.errors",
+        "description": "app.api.errors",
+        "peekOfCode": "def bad_request(message):\n    return error_response(400, message)",
+        "detail": "app.api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "get_token",
+        "kind": 2,
+        "importPath": "app.api.tokens",
+        "description": "app.api.tokens",
+        "peekOfCode": "def get_token():\n    token = basic_auth.current_user().get_token()\n    db.session.commit()\n    return jsonify({'token': token})",
+        "detail": "app.api.tokens",
+        "documentation": {}
+    },
+    {
+        "label": "get_user",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def get_user(id):\n    return jsonify(User.query.get_or_404(id).to_dict())\n@bp.route('/users', methods=['GET'])\ndef get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])\ndef get_followers(id):",
+        "detail": "app.api.users",
+        "documentation": {}
+    },
+    {
+        "label": "get_users",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])\ndef get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)",
+        "detail": "app.api.users",
+        "documentation": {}
+    },
+    {
+        "label": "get_followers",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(user.followers, page, per_page,\n                                   'api.get_followers', id=id)\n    return jsonify(data)\n@bp.route('/users/<int:id>/followed', methods=['GET'])\ndef get_followed(id):\n    user = User.query.get_or_404(id)",
+        "detail": "app.api.users",
+        "documentation": {}
+    },
+    {
+        "label": "get_followed",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def get_followed(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(user.followed, page, per_page,\n                                   'api.get_followed', id=id)\n    return jsonify(data)\n@bp.route('/users', methods=['POST'])\ndef create_user():\n    data = request.get_json() or {}",
+        "detail": "app.api.users",
+        "documentation": {}
+    },
+    {
+        "label": "create_user",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def create_user():\n    data = request.get_json() or {}\n    if 'username' not in data or 'email' not in data or 'password' not in data:\n        return bad_request('must include username, email and password fields')\n    if User.query.filter_by(username=data['username']).first():\n        return bad_request('please use a different username')\n    if User.query.filter_by(email=data['email']).first():\n        return bad_request('please use a different email address')\n    user = User()\n    user.from_dict(data, new_user=True)",
+        "detail": "app.api.users",
+        "documentation": {}
+    },
+    {
+        "label": "update_user",
+        "kind": 2,
+        "importPath": "app.api.users",
+        "description": "app.api.users",
+        "peekOfCode": "def update_user(id):\n    user = User.query.get_or_404(id)\n    data = request.get_json() or {}\n    if 'username' in data and data['username'] != user.username and \\\n            User.query.filter_by(username=data['username']).first():\n        return bad_request('please use a different username')\n    if 'email' in data and data['email'] != user.email and \\\n            User.query.filter_by(email=data['email']).first():\n        return bad_request('please use a different email address')\n    user.from_dict(data, new_user=False)",
+        "detail": "app.api.users",
         "documentation": {}
     },
     {
@@ -1521,11 +1782,20 @@
         "documentation": {}
     },
     {
+        "label": "PaginatedAPIMixin",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class PaginatedAPIMixin(object):\n    @staticmethod\n    def to_collection_dict(query, page, per_page, endpoint, **kwargs):\n        resources = query.paginate(page=page, per_page=per_page, error_out=False)\n        data = {\n            'items': [item.to_dict() for item in resources.items],\n            '_meta': {\n                'page': page,\n                'per_page': per_page,\n                'total_pages': resources.pages,",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(512))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.now)\n    followed = db.relationship(\n        \"User\",",
+        "peekOfCode": "class User(db.Model, PaginatedAPIMixin,UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(64), index=True, unique=True)\n    email = db.Column(db.String(120), index=True, unique=True)\n    password_hash = db.Column(db.String(512))\n    posts = db.relationship(\"Post\", backref=\"author\", lazy=\"dynamic\")\n    about_me = db.Column(db.String(140))\n    last_seen = db.Column(db.DateTime, default=datetime.now)\n    followed = db.relationship(\n        \"User\",",
         "detail": "app.models",
         "documentation": {}
     },
