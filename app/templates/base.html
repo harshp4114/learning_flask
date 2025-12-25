@@ -113,7 +113,7 @@
       {% if current_user.is_authenticated %} {% with tasks =
       current_user.get_tasks_in_progress() %} {% if tasks %} {% for task in
       tasks %}
-      <div class="alert alert-success" role="alert">
+      <div id="progress-div" style="display:inline-block; width:100%" class="alert alert-success" role="alert">
         {{task.description}}
         <span id="{{task.id}}-progress">{{task.get_progress()}}</span>%
         <div class="progress mt-3">
@@ -218,7 +218,10 @@
         $('#'+task_id+'-progress').text(progress)
         $('#pgbar').css("width",(progress+'%'))
         $('#pgbar').text(progress+'% Complete')
+        
+  
       }
+
 
       {%if current_user.is_authenticated %}
         $(function(){

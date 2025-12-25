@@ -36,7 +36,7 @@ def export_posts(user_id):
             data.append(
                 {"body": post.body, "timestamp": post.timestamp.isoformat() + "Z"}
             )
-            time.sleep(5)
+            time.sleep(2)
             i += 1
             _set_task_progress(100 * i // total_posts)
 
@@ -59,4 +59,5 @@ def export_posts(user_id):
         app.logger.error("Unhandled exception", exc_info=sys.exc_info())
     finally:
         _set_task_progress(100)
+
         

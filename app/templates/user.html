@@ -12,7 +12,7 @@
                 {% if user == current_user%}
                 <p><a class="nav-link" aria-current="page" href="{{url_for('main.edit_profile')}}"><u>{{_('Edit your profile')}}</u></a></p>
                 {% if not current_user.get_task_in_progress('export_posts') %}
-                <p><a class="nav-link" aria-current="page" href="{{url_for('main.export_posts')}}"><u>{{_('Export your posts')}}</u></a></p>
+                <p id="export-posts-text"><a class="nav-link" aria-current="page" href="{{url_for('main.export_posts')}}"><u>{{_('Export your posts')}}</u></a></p>
                 {% endif %}
                 {% elif not current_user.is_following(user) %}
                 <p>
