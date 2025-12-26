@@ -1,8 +1,8 @@
-"""recreate tables
+"""starting again due migration error
 
-Revision ID: d102fd8f558d
-Revises: ead9272b776b
-Create Date: 2025-12-25 11:36:12.290576
+Revision ID: 621192c3ce61
+Revises: 
+Create Date: 2025-12-26 11:24:56.446092
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd102fd8f558d'
-down_revision = 'ead9272b776b'
+revision = '621192c3ce61'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -26,10 +26,13 @@ def upgrade():
     sa.Column('about_me', sa.String(length=140), nullable=True),
     sa.Column('last_seen', sa.DateTime(), nullable=True),
     sa.Column('last_message_read_time', sa.DateTime(), nullable=True),
+    sa.Column('token', sa.String(length=32), nullable=True),
+    sa.Column('token_expiration', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     with op.batch_alter_table('user', schema=None) as batch_op:
         batch_op.create_index(batch_op.f('ix_user_email'), ['email'], unique=True)
+        batch_op.create_index(batch_op.f('ix_user_token'), ['token'], unique=True)
         batch_op.create_index(batch_op.f('ix_user_username'), ['username'], unique=True)
 
     op.create_table('followers',
@@ -113,6 +116,7 @@ def downgrade():
     op.drop_table('followers')
     with op.batch_alter_table('user', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_user_username'))
+        batch_op.drop_index(batch_op.f('ix_user_token'))
         batch_op.drop_index(batch_op.f('ix_user_email'))
 
     op.drop_table('user')

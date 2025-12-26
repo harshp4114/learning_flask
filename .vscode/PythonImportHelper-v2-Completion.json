@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPTokenAuth",
+        "importPath": "flask_httpauth",
+        "description": "flask_httpauth",
+        "isExtraImport": true,
+        "detail": "flask_httpauth",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "app.models",
         "description": "app.models",
@@ -176,6 +184,14 @@
         "documentation": {}
     },
     {
+        "label": "error_response",
+        "importPath": "app.api.errors",
+        "description": "app.api.errors",
+        "isExtraImport": true,
+        "detail": "app.api.errors",
+        "documentation": {}
+    },
+    {
         "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
@@ -209,6 +225,14 @@
     },
     {
         "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -273,6 +297,14 @@
     },
     {
         "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -529,6 +561,22 @@
     },
     {
         "label": "basic_auth",
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "isExtraImport": true,
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "token_auth",
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "isExtraImport": true,
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "token_auth",
         "importPath": "app.api.auth",
         "description": "app.api.auth",
         "isExtraImport": true,
@@ -1186,102 +1234,6 @@
         "documentation": {}
     },
     {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
         "label": "context",
         "importPath": "alembic",
         "description": "alembic",
@@ -1345,7 +1297,7 @@
         "kind": 2,
         "importPath": "app.api.auth",
         "description": "app.api.auth",
-        "peekOfCode": "def verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)",
+        "peekOfCode": "def verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)\n@token_auth.verify_token\ndef verify_token(token):\n    return User.check_token(token) if token else None",
         "detail": "app.api.auth",
         "documentation": {}
     },
@@ -1354,7 +1306,25 @@
         "kind": 2,
         "importPath": "app.api.auth",
         "description": "app.api.auth",
-        "peekOfCode": "def basic_auth_error(status):\n    return error_response(status)",
+        "peekOfCode": "def basic_auth_error(status):\n    return error_response(status)\n@token_auth.verify_token\ndef verify_token(token):\n    return User.check_token(token) if token else None\n@token_auth.error_handler\ndef token_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "verify_token",
+        "kind": 2,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "def verify_token(token):\n    return User.check_token(token) if token else None\n@token_auth.error_handler\ndef token_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "token_auth_error",
+        "kind": 2,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "def token_auth_error(status):\n    return error_response(status)",
         "detail": "app.api.auth",
         "documentation": {}
     },
@@ -1363,7 +1333,16 @@
         "kind": 5,
         "importPath": "app.api.auth",
         "description": "app.api.auth",
-        "peekOfCode": "basic_auth = HTTPBasicAuth()\n@basic_auth.verify_password\ndef verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)",
+        "peekOfCode": "basic_auth = HTTPBasicAuth()\ntoken_auth = HTTPTokenAuth()\n@basic_auth.verify_password\ndef verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)",
+        "detail": "app.api.auth",
+        "documentation": {}
+    },
+    {
+        "label": "token_auth",
+        "kind": 5,
+        "importPath": "app.api.auth",
+        "description": "app.api.auth",
+        "peekOfCode": "token_auth = HTTPTokenAuth()\n@basic_auth.verify_password\ndef verify_password(username, password):\n    user = User.query.filter_by(username=username).first()\n    if user and user.check_password(password):\n        return user\n@basic_auth.error_handler\ndef basic_auth_error(status):\n    return error_response(status)\n@token_auth.verify_token",
         "detail": "app.api.auth",
         "documentation": {}
     },
@@ -1390,7 +1369,16 @@
         "kind": 2,
         "importPath": "app.api.tokens",
         "description": "app.api.tokens",
-        "peekOfCode": "def get_token():\n    token = basic_auth.current_user().get_token()\n    db.session.commit()\n    return jsonify({'token': token})",
+        "peekOfCode": "def get_token():\n    token = basic_auth.current_user().get_token()\n    db.session.commit()\n    return jsonify({'token': token})\n@bp.route('/tokens', methods=['DELETE'])\n@token_auth.login_required\ndef revoke_token():\n    token_auth.current_user().revoke_token()\n    db.session.commit()\n    return '', 204",
+        "detail": "app.api.tokens",
+        "documentation": {}
+    },
+    {
+        "label": "revoke_token",
+        "kind": 2,
+        "importPath": "app.api.tokens",
+        "description": "app.api.tokens",
+        "peekOfCode": "def revoke_token():\n    token_auth.current_user().revoke_token()\n    db.session.commit()\n    return '', 204",
         "detail": "app.api.tokens",
         "documentation": {}
     },
@@ -1399,7 +1387,7 @@
         "kind": 2,
         "importPath": "app.api.users",
         "description": "app.api.users",
-        "peekOfCode": "def get_user(id):\n    return jsonify(User.query.get_or_404(id).to_dict())\n@bp.route('/users', methods=['GET'])\ndef get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])\ndef get_followers(id):",
+        "peekOfCode": "def get_user(id):\n    return jsonify(User.query.get_or_404(id).to_dict())\n@bp.route('/users', methods=['GET'])\n@token_auth.login_required\ndef get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])",
         "detail": "app.api.users",
         "documentation": {}
     },
@@ -1408,7 +1396,7 @@
         "kind": 2,
         "importPath": "app.api.users",
         "description": "app.api.users",
-        "peekOfCode": "def get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])\ndef get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)",
+        "peekOfCode": "def get_users():\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')\n    return jsonify(data)\n@bp.route('/users/<int:id>/followers', methods=['GET'])\n@token_auth.login_required\ndef get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)",
         "detail": "app.api.users",
         "documentation": {}
     },
@@ -1417,7 +1405,7 @@
         "kind": 2,
         "importPath": "app.api.users",
         "description": "app.api.users",
-        "peekOfCode": "def get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(user.followers, page, per_page,\n                                   'api.get_followers', id=id)\n    return jsonify(data)\n@bp.route('/users/<int:id>/followed', methods=['GET'])\ndef get_followed(id):\n    user = User.query.get_or_404(id)",
+        "peekOfCode": "def get_followers(id):\n    user = User.query.get_or_404(id)\n    page = request.args.get('page', 1, type=int)\n    per_page = min(request.args.get('per_page', 10, type=int), 100)\n    data = User.to_collection_dict(user.followers, page, per_page,\n                                   'api.get_followers', id=id)\n    return jsonify(data)\n@bp.route('/users/<int:id>/followed', methods=['GET'])\n@token_auth.login_required\ndef get_followed(id):",
         "detail": "app.api.users",
         "documentation": {}
     },
@@ -1561,7 +1549,7 @@
         "kind": 2,
         "importPath": "app.errors.handlers",
         "description": "app.errors.handlers",
-        "peekOfCode": "def not_found_error(error):\n    return render_template('errors/404.html'),404\n@bp.app_errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500",
+        "peekOfCode": "def not_found_error(error):\n    return render_template('errors/404.html'),404\n@bp.app_errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500\ndef wants_json_response():\n    return request.accept_mimetypes['application/json'] >= \\\n        request.accept_mimetypes['text/html']\n@bp.app_errorhandler(404)",
         "detail": "app.errors.handlers",
         "documentation": {}
     },
@@ -1570,7 +1558,34 @@
         "kind": 2,
         "importPath": "app.errors.handlers",
         "description": "app.errors.handlers",
-        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500",
+        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    return render_template('errors/500.html'),500\ndef wants_json_response():\n    return request.accept_mimetypes['application/json'] >= \\\n        request.accept_mimetypes['text/html']\n@bp.app_errorhandler(404)\ndef not_found_error(error):\n    if wants_json_response():\n        return api_error_response(404)",
+        "detail": "app.errors.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "wants_json_response",
+        "kind": 2,
+        "importPath": "app.errors.handlers",
+        "description": "app.errors.handlers",
+        "peekOfCode": "def wants_json_response():\n    return request.accept_mimetypes['application/json'] >= \\\n        request.accept_mimetypes['text/html']\n@bp.app_errorhandler(404)\ndef not_found_error(error):\n    if wants_json_response():\n        return api_error_response(404)\n    return render_template('errors/404.html'), 404\n@bp.app_errorhandler(500)\ndef internal_error(error):",
+        "detail": "app.errors.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "not_found_error",
+        "kind": 2,
+        "importPath": "app.errors.handlers",
+        "description": "app.errors.handlers",
+        "peekOfCode": "def not_found_error(error):\n    if wants_json_response():\n        return api_error_response(404)\n    return render_template('errors/404.html'), 404\n@bp.app_errorhandler(500)\ndef internal_error(error):\n    db.session.rollback()\n    if wants_json_response():\n        return api_error_response(500)\n    return render_template('errors/500.html'), 500",
+        "detail": "app.errors.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "internal_error",
+        "kind": 2,
+        "importPath": "app.errors.handlers",
+        "description": "app.errors.handlers",
+        "peekOfCode": "def internal_error(error):\n    db.session.rollback()\n    if wants_json_response():\n        return api_error_response(500)\n    return render_template('errors/500.html'), 500",
         "detail": "app.errors.handlers",
         "documentation": {}
     },
@@ -1910,703 +1925,55 @@
     {
         "label": "upgrade",
         "kind": 2,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_seen')",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_seen')\n        batch_op.drop_column('about_me')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "revision = '2e99705fb473'\ndown_revision = 'b4bc7bacb571'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "down_revision = 'b4bc7bacb571'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "description": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('about_me', sa.String(length=140), nullable=True))\n        batch_op.add_column(sa.Column('last_seen', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:",
-        "detail": "migrations.versions.2e99705fb473_new_fields_in_user_model",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.VARCHAR(length=128),\n               type_=sa.String(length=512),\n               existing_nullable=True)\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.String(length=512),\n               type_=sa.VARCHAR(length=128),\n               existing_nullable=True)\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "revision = '577b57441dec'\ndown_revision = '8eb1726549a3'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.VARCHAR(length=128),\n               type_=sa.String(length=512),",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "down_revision = '8eb1726549a3'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.VARCHAR(length=128),\n               type_=sa.String(length=512),\n               existing_nullable=True)",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.VARCHAR(length=128),\n               type_=sa.String(length=512),\n               existing_nullable=True)\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "description": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.alter_column('password_hash',\n               existing_type=sa.VARCHAR(length=128),\n               type_=sa.String(length=512),\n               existing_nullable=True)\n    # ### end Alembic commands ###\ndef downgrade():",
-        "detail": "migrations.versions.577b57441dec_increase_password_hash_width",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )\n    with op.batch_alter_table('user', schema=None) as batch_op:",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "revision = '63b6500cd8e6'\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.63b6500cd8e6_users_table",
-        "description": "migrations.versions.63b6500cd8e6_users_table",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.PrimaryKeyConstraint('id')\n    )",
-        "detail": "migrations.versions.63b6500cd8e6_users_table",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.ForeignKeyConstraint(['recipient_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['sender_id'], ['user.id'], ),",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_column('last_message_read_time')\n    with op.batch_alter_table('message', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_message_timestamp'))\n    op.drop_table('message')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "revision = '6bea68f8b032'\ndown_revision = '577b57441dec'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "down_revision = '577b57441dec'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.6bea68f8b032_private_messages",
-        "description": "migrations.versions.6bea68f8b032_private_messages",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('message',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('sender_id', sa.Integer(), nullable=True),\n    sa.Column('recipient_id', sa.Integer(), nullable=True),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.ForeignKeyConstraint(['recipient_id'], ['user.id'], ),",
-        "detail": "migrations.versions.6bea68f8b032_private_messages",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    op.drop_table('followers')\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "revision = '6dbe588c3a96'\ndown_revision = 'b6a454e91ef4'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "down_revision = 'b6a454e91ef4'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "description": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.6dbe588c3a96_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "revision = '8eb1726549a3'\ndown_revision = '6dbe588c3a96'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "down_revision = '6dbe588c3a96'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "description": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('language', sa.String(length=5), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_column('language')",
-        "detail": "migrations.versions.8eb1726549a3_added_language_field_in_posts",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )\n    # ### end Alembic commands ###\ndef downgrade():",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_table('followers')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "revision = '92a13869555b'\ndown_revision = '2e99705fb473'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "down_revision = '2e99705fb473'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.92a13869555b_followers_relationship",
-        "description": "migrations.versions.92a13869555b_followers_relationship",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('followers',\n    sa.Column('follower_id', sa.Integer(), nullable=True),\n    sa.Column('followed_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['followed_id'], ['user.id'], ),\n    sa.ForeignKeyConstraint(['follower_id'], ['user.id'], )\n    )\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.92a13869555b_followers_relationship",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('notifications', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_notifications_timestamp'))\n        batch_op.drop_index(batch_op.f('ix_notifications_name'))\n    op.drop_table('notifications')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "revision = 'b1b20a27d09d'\ndown_revision = '6bea68f8b032'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "down_revision = '6bea68f8b032'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "description": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
-        "detail": "migrations.versions.b1b20a27d09d_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')\n    )",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "revision = 'b4bc7bacb571'\ndown_revision = '63b6500cd8e6'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "down_revision = '63b6500cd8e6'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.b4bc7bacb571_posts_table",
-        "description": "migrations.versions.b4bc7bacb571_posts_table",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('post',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('body', sa.String(length=140), nullable=True),\n    sa.Column('timestamp', sa.DateTime(), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.b4bc7bacb571_posts_table",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    op.drop_table('followers')\n    with op.batch_alter_table('user', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_user_username'))\n        batch_op.drop_index(batch_op.f('ix_user_email'))\n    op.drop_table('user')",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "revision = 'b6a454e91ef4'\ndown_revision = '92a13869555b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "down_revision = '92a13869555b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "description": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=128), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.b6a454e91ef4_migrating_again_due_to_error",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notifications',\n    sa.Column('id', sa.INTEGER(), nullable=False),\n    sa.Column('name', sa.VARCHAR(length=128), nullable=True),\n    sa.Column('user_id', sa.INTEGER(), nullable=True),\n    sa.Column('timestamp', sa.FLOAT(), nullable=True),\n    sa.Column('payload_json', sa.TEXT(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "revision = 'c06d44b20fbe'\ndown_revision = 'b1b20a27d09d'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "down_revision = 'b1b20a27d09d'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "description": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('notification',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('timestamp', sa.Float(), nullable=True),\n    sa.Column('payload_json', sa.Text(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
-        "detail": "migrations.versions.c06d44b20fbe_added_notification_model",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=512), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),\n    sa.Column('last_message_read_time', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
         "label": "downgrade",
         "kind": 2,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('task', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_task_name'))\n    op.drop_table('task')\n    with op.batch_alter_table('post', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_post_timestamp'))\n    op.drop_table('post')\n    with op.batch_alter_table('notification', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_notification_timestamp'))",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
         "label": "revision",
         "kind": 5,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
-        "peekOfCode": "revision = 'd102fd8f558d'\ndown_revision = 'ead9272b776b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "peekOfCode": "revision = '621192c3ce61'\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
         "label": "down_revision",
         "kind": 5,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
-        "peekOfCode": "down_revision = 'ead9272b776b'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=512), nullable=True),",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=512), nullable=True),",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
         "label": "branch_labels",
         "kind": 5,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=512), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
         "label": "depends_on",
         "kind": 5,
-        "importPath": "migrations.versions.d102fd8f558d_recreate_tables",
-        "description": "migrations.versions.d102fd8f558d_recreate_tables",
+        "importPath": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
+        "description": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('user',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(length=64), nullable=True),\n    sa.Column('email', sa.String(length=120), nullable=True),\n    sa.Column('password_hash', sa.String(length=512), nullable=True),\n    sa.Column('about_me', sa.String(length=140), nullable=True),\n    sa.Column('last_seen', sa.DateTime(), nullable=True),",
-        "detail": "migrations.versions.d102fd8f558d_recreate_tables",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "def upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),\n    sa.PrimaryKeyConstraint('id')",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "def downgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('task', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_task_name'))\n    op.drop_table('task')\n    # ### end Alembic commands ###",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "revision = 'ead9272b776b'\ndown_revision = 'c06d44b20fbe'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "down_revision = 'c06d44b20fbe'\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.ead9272b776b_added_task_model",
-        "description": "migrations.versions.ead9272b776b_added_task_model",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('task',\n    sa.Column('id', sa.String(length=64), nullable=False),\n    sa.Column('name', sa.String(length=128), nullable=True),\n    sa.Column('description', sa.String(length=128), nullable=True),\n    sa.Column('user_id', sa.Integer(), nullable=True),\n    sa.Column('complete', sa.Boolean(), nullable=True),\n    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),",
-        "detail": "migrations.versions.ead9272b776b_added_task_model",
+        "detail": "migrations.versions.621192c3ce61_starting_again_due_migration_error",
         "documentation": {}
     },
     {
